@@ -1,0 +1,128 @@
+/*SHARED ACCROSS ALL HTML FILES*/
+
+:root {
+    --main-padding: 10px;
+    --large-padding: 40px;
+    --main-gap: 10px;
+    --small-gap: 5px;
+
+    --main-color: ;
+    --feature-color: ;
+
+    --title-size: 1.5rem;
+    --paragraph-size: 1rem;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*ELEMENT SPECIFIC*/
+
+body {
+    max-width: 100vw;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/*FEATURES*/
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+/*HEADER*/
+
+header h1 {
+    font-size: var(--title-size);
+}
+
+.header-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: var(--main-padding);
+    gap: 10px;
+}
+
+.header-left {
+    width: fit-content;
+    height: 100%;
+}
+
+.header-right {
+    height: 100%;
+    justify-content: center;
+}
+
+nav {
+    min-width: 20%;
+}
+
+.nav-list {
+    gap: var(--main-gap);
+}
+
+/*FOOTER*/
+
+footer > .footer-list {
+    margin-bottom: var(--small-gap);
+    height: calc(100% - 2 * var(--small-gap));
+    justify-content: space-around;
+    gap: var(--small-gap);
+}
+
+.footer-list > section {
+    flex-basis: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: var(--main-gap);
+}
+
+ul[class=list-col] > * {
+    margin-bottom: var(--small-gap);
+}
+
+footer > .bottom {
+    margin-bottom: var(--small-gap);
+    height: max-content;
+    justify-content: space-evenly;
+}
+
+footer > .bottom > * {
+    height: 100%;
+    width: max-content;
+}
+
+.bottom > span {
+    display: block;
+    height: 100%;
+    width: 50%;
+}
