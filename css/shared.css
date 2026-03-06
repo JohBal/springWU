@@ -1,20 +1,54 @@
 /*SHARED ACCROSS ALL HTML FILES*/
 
 :root {
-    --small-padding: 5px;
-    --main-padding: 10px;
-    --large-padding: 40px;
+    --pad-small: 5px;
+    --pad-main: 10px;
+    --pad-large: 40px;
 
-    --large-gap: 50px;
-    --main-gap: 10px;
-    --small-gap: 5px;
+    --gap-large: 40px;
+    --gap-main: 10px;
+    --gap-small: 5px;
 
-    --main-color: ;
-    --feature-color: ;
+    --border-radius: 12px;
 
     --title-size: 1.5rem;
     --paragraph-size: 1rem;
 
+    --trans-time: .3s;
+
+    /*Light scheme colors*/
+    --fg: rgb(245, 245, 245);
+    --bg-main: rgb(230, 230, 230);
+    --bg-sec: rgb(200, 200, 200);
+    --border-color: rgb(170, 170, 170);
+
+    --interactable: rgb(220, 220, 220);
+    --header-color: rgb(69, 69, 84);
+    --title-color: rgb(30, 30, 30);
+    --text-color: rgb(20, 20, 20);
+    --desc-color: hsl(from var(--text-color) h s calc(l * .5));
+
+    /*Dark scheme colors*/
+    --fg-dark: rgb(30, 30, 30);
+    --bg-main-dark: rgb(50, 50, 50);
+    --bg-sec-dark: rgb(80, 80, 80);
+    --border-color-dark: rgb();
+
+    --interactable-dark: rgb(130, 130, 130);
+    --header-color-dark: rgb(69, 69, 84);
+    --title-color-dark: rgb(30, 30, 30);
+    --text-color-dark: rgb(230, 230, 230);
+
+    color-scheme: light dark;
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url('../fonts/Nunito-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: Rubik;
+    src: url('../fonts/Rubik-VariableFont_wght.ttf');
 }
 
 * {
@@ -37,6 +71,48 @@ h1, h2 {
     text-align: center;
 }
 
+h1 {
+    color: light-dark(var(--header-color), var(--header-color-dark));
+}
+
+p {
+    font-size: 1rem;
+    color: light-dark(var(--text-color), var(--text-color-dark));
+    font-family: 'Nunito';
+}
+
+label, output {
+    color: light-dark(var(--text-color), var(--text-color-dark));
+    font-family: 'Rubik';
+}
+
+button {
+    padding: var(--pad-small);
+
+    background-color: light-dark(var(--interactable), var(--interactable-dark));
+    color: light-dark(var(--text-color), var(--text-color-dark));
+
+    font-family: 'Nunito';
+    font-weight: 500;
+
+    transition: background-color var(--trans-time), color var(--trans-time), box-shadow var(--trans-time);
+}
+
+button:hover:not(:disabled), button:focus:not(:disabled) {
+    background-color: light-dark(var(--interactable-dark), var(--interactable));
+    color: light-dark(var(--text-color-dark), var(--text-color));
+    box-shadow: 0px 2px 5px 2px var(--border-color);
+}
+
+button:hover:not(:disabled) {
+    cursor: pointer;
+}
+
+button:has(.radial-ind) {
+    display: flex;
+    flex-direction: row;
+}
+
 abbr {
     display: inline;
     text-decoration: underline;
@@ -45,6 +121,11 @@ abbr {
 }
 
 /*FEATURES*/
+
+.ign-mouse {
+    pointer-events: none;
+    touch-action: none;
+}
 
 .flex-col {
     display: flex;
@@ -75,6 +156,66 @@ abbr {
     align-items: center;
 }
 
+.line-seperator {
+    margin-bottom: var(--gap-main);
+
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: light-dark(rgb(80, 80, 80), rgb(150, 150, 150));
+    }
+}
+
+.list-space {
+    margin-bottom: var(--gap-small);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.border, button {
+    border-radius: var(--border-radius);
+    
+    border: solid 2px var(--border-color);
+    box-shadow: 0px 0px 5px 2px var(--border-color);
+}
+
+.radial-ind {
+    display: block;
+    height: 1rem;
+    width: auto;
+    aspect-ratio: 1/1;
+    margin-left: var(--gap-small);
+
+    position: relative;
+    justify-self: flex-start;
+    align-self: flex-start;
+
+    border-radius: 1000px;
+    border: solid 1px light-dark(black, white);
+}
+
+.radial-ind > span {
+    display: block;
+    height: 90%;
+    width: auto;
+    aspect-ratio: 1/1;
+
+    position: absolute;
+    top: 5%;
+    left: 5%;
+
+    border-radius: 1000px;
+    transition: background-color var(--trans-time);
+}
+
+.radial-ind[solid] > span {
+    background-color: light-dark(black, white);
+}
+
 /*HEADER*/
 
 header h1 {
@@ -85,7 +226,7 @@ header h1 {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: var(--main-padding);
+    padding: var(--pad-main);
     gap: 10px;
 }
 
@@ -104,16 +245,16 @@ nav {
 }
 
 .nav-list {
-    gap: var(--main-gap);
+    gap: var(--gap-main);
 }
 
 /*FOOTER*/
 
 footer > .footer-list {
-    margin-bottom: var(--small-gap);
-    height: calc(100% - 2 * var(--small-gap));
+    margin-bottom: var(--gap-small);
+    height: calc(100% - 2 * var(--gap-small));
     justify-content: space-around;
-    gap: var(--small-gap);
+    gap: var(--gap-small);
 }
 
 .footer-list > section {
@@ -124,15 +265,15 @@ footer > .footer-list {
     flex-direction: column;
     align-items: center;
 
-    gap: var(--main-gap);
+    gap: var(--gap-main);
 }
 
 ul[class=list-col] > * {
-    margin-bottom: var(--small-gap);
+    margin-bottom: var(--gap-small);
 }
 
 footer > .bottom {
-    margin-bottom: var(--small-gap);
+    margin-bottom: var(--gap-small);
     height: max-content;
     justify-content: space-evenly;
 }

@@ -25,14 +25,14 @@
       </div>
     </header>
 
-    <section class="side-panel">
-      <h2>Options</h2>
-      <ul>
+    <aside class="side-panel">
+      <h2 class="list-space">Options</h2>
+      <ul class="side-panel-list flex-col">
         <li>
-          <button>Anti-pair</button>
+          <button>Anti-pair <span class="radial-ind"><span></span></span></button>
         </li>
       </ul>
-    </section>
+    </aside>
 
     <section class="particles">
       <div class="table-container">
@@ -49,155 +49,69 @@
   
         <div class="table">
 
-          <div class="entry">
-            <div class="particle">
-              <ul class="particle-data-list">
-                <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                <li><label>Spin</label> <output>100</output></li>
-                <li><label>E</label> <output>100</output></li>
-              </ul>
-              <div class="center">
-                <div>
-                  <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                    <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
-                  </svg>
-                  <h3 class="particle-name">UP</h3>
+          <template id="tableEntry">
+            <div class="entry">
+              <div class="particle">
+                <ul class="particle-data-list">
+                  <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
+                  <li><label>Spin</label> <output>100</output></li>
+                  <li><label>E</label> <output>100</output></li>
+                </ul>
+                <div class="center ign-mouse">
+                  <div>
+                    <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="50" cy="50" r="50" />
+                      <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
+                    </svg>
+                    <h3 class="particle-name">UP</h3>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="entry">
-            <div class="particle">
-              <ul class="particle-data-list">
-                <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                <li><label>Spin</label> <output>100</output></li>
-                <li><label>E</label> <output>100</output></li>
-              </ul>
-              <div class="center">
-                <div>
-                  <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                    <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
-                  </svg>
-                  <h3 class="particle-name">UP</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="particle">
-              <ul class="particle-data-list">
-                <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                <li><label>Spin</label> <output>100</output></li>
-                <li><label>E</label> <output>100</output></li>
-              </ul>
-              <div class="center">
-                <div>
-                  <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                    <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
-                  </svg>
-                  <h3 class="particle-name">UP</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="particle">
-              <ul class="particle-data-list">
-                <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                <li><label>Spin</label> <output>100</output></li>
-                <li><label>E</label> <output>100</output></li>
-              </ul>
-              <div class="center">
-                <div>
-                  <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                    <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
-                  </svg>
-                  <h3 class="particle-name">UP</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="particle">
-              <ul class="particle-data-list">
-                <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                <li><label>Spin</label> <output>100</output></li>
-                <li><label>E</label> <output>100</output></li>
-              </ul>
-              <div class="center">
-                <div>
-                  <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                    <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
-                  </svg>
-                  <h3 class="particle-name">UP</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="particle">
-              <ul class="particle-data-list">
-                <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                <li><label>Spin</label> <output>100</output></li>
-                <li><label>E</label> <output>100</output></li>
-              </ul>
-              <div class="center">
-                <div>
-                  <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" />
-                    <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
-                  </svg>
-                  <h3 class="particle-name">UP</h3>
-                </div>
-              </div>
-            </div>
-          </div>
+          </template>
 
         </div>
       </div>
     </section>
 
-    <section class="particle-data">
-      <div class="header flex-row">
+    <section class="particle-details-container">
+
+      <div class="details-header flex-row">
         <h2>Details</h2>
         <div class="options flex-row flex-wrap">
           <button>Compare</button>
-          <button>Interaction</button>
+          <button disabled>Interaction</button>
         </div>
       </div>
-      <div class="">
+
+      <div class="particle-details">
         <section>
-          <div>
-            <h3>Particle</h3>
+          <div class="details-list-header flex-row">
+            <h3 class="line-seperator list-space">Particle</h3>
           </div>
-          <ul>
-            <li>
-              <label>Data</label>
-              <output>Value</output>
-            </li>
-            <li>
-              <label>Data</label>
-              <output>Value</output>
-            </li>
-            <li>
-              <label>Data</label>
-              <output>Value</output>
+          <ul class="particle-details-list">
+            <li class="details-category">
+              <h4 class="line-seperator text-center">Category name</h4>
+              <ul class="details-category-list flex-col">
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+              </ul>
             </li>
           </ul>
         </section>
-        <section>
-          
-        </section>
+        
       </div>
     </section>
 
