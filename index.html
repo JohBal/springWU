@@ -16,22 +16,25 @@
         </div>
         <nav class="header-right flex-col">
           <ul class="nav-list flex-row flex-wrap">
-            <li><a href="./index.html">Table</a></li>
-            <li><a href="./hardrons.html">Hardrons</a></li>
-            <li><a href="./interactions.html">Interactions</a></li>
-            <li><a href="./about.html">About</a></li>
+            <li><a href="./index.html" class="text-center">Table</a></li>
+            <li><a href="./hardrons.html" class="text-center">Hardrons</a></li>
+            <li><a href="./interactions.html" class="text-center">Interactions</a></li>
+            <li><a href="./about.html" class="text-center">About</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
+    <section id="current-site">
+      <h2>The table</h2>
+    </section>
+
     <aside class="side-panel">
       <h2 class="list-space">Options</h2>
-      <ul class="side-panel-list flex-col">
-        <li>
-          <button>Anti-pair <span class="radial-ind"><span></span></span></button>
-        </li>
-      </ul>
+      <form class="side-panel-list flex-row flex-wrap">
+        <label name="anti-pair">Anti-pair</label>
+        <input name="anti-pair" type="checkbox"></input>
+      </form>
     </aside>
 
     <section class="particles">
@@ -51,14 +54,14 @@
 
           <template id="tableEntry">
             <div class="entry">
-              <div class="particle">
+              <div class="particle" role="cell" tabindex="0">
                 <ul class="particle-data-list">
                   <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
                   <li><label>Spin</label> <output>100</output></li>
                   <li><label>E</label> <output>100</output></li>
                 </ul>
                 <div class="center ign-mouse">
-                  <div>
+                  <div class="center">
                     <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="50" cy="50" r="50" />
                       <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
@@ -89,10 +92,10 @@
           <div class="details-list-header flex-row">
             <h3 class="line-seperator list-space">Particle</h3>
           </div>
-          <ul class="particle-details-list">
+          <ul class="details-list flex-row flex-wrap">
             <li class="details-category">
-              <h4 class="line-seperator text-center">Category name</h4>
-              <ul class="details-category-list flex-col">
+              <h4 class="details-category-header line-seperator text-center">Category name</h4>
+              <ul class="details-category-list flex-col flex-wrap">
                 <li class="flex-row">
                   <label>Data</label>
                   <output>Value</output>
@@ -103,12 +106,96 @@
                   <output>Value</output>
                 </li>
 
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
                 <li class="flex-row">
                   <label>Data</label>
                   <output>Value</output>
                 </li>
               </ul>
             </li>
+
+            <li class="details-category">
+              <h4 class="details-category-header line-seperator text-center">Category name</h4>
+              <ul class="details-category-list flex-col flex-wrap">
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                </ul>
+                </li>
           </ul>
         </section>
         

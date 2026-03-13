@@ -11,6 +11,8 @@
 
     --border-radius: 12px;
 
+    --border-size: 3px;
+
     --title-size: 1.5rem;
     --paragraph-size: 1rem;
 
@@ -32,7 +34,7 @@
     --fg-dark: rgb(30, 30, 30);
     --bg-main-dark: rgb(50, 50, 50);
     --bg-sec-dark: rgb(80, 80, 80);
-    --border-color-dark: rgb();
+    --border-color-dark: rgb(170, 170, 170);
 
     --interactable-dark: rgb(130, 130, 130);
     --header-color-dark: rgb(69, 69, 84);
@@ -46,9 +48,15 @@
     font-family: Nunito;
     src: url('../fonts/Nunito-VariableFont_wght.ttf');
 }
+
 @font-face {
     font-family: Rubik;
     src: url('../fonts/Rubik-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: Foldit;
+    src: url('../fonts/Foldit-VariableFont_wght.ttf');
 }
 
 * {
@@ -108,9 +116,23 @@ button:hover:not(:disabled) {
     cursor: pointer;
 }
 
-button:has(.radial-ind) {
-    display: flex;
-    flex-direction: row;
+button:disabled {
+    background-color: light-dark( hsl(from var(--interactable) h s  calc(l * .9)), hsl(from var(--interactable-dark) h s  calc(l * .9)) );
+}
+
+header a {
+    text-decoration: none;
+    font-variation-settings: "wght" 500.0;
+    font-family: Nunito;
+    color: light-dark(var(--title-color), var(--title-color-dark));
+    margin: 0 2.8px;
+
+    transition: font-variation-settings .4s, margin .38s;
+}
+
+header a:hover {
+    font-variation-settings: "wght" 800.0;
+    margin: 0;
 }
 
 abbr {
@@ -180,36 +202,31 @@ abbr {
     border-radius: var(--border-radius);
     
     border: solid 2px var(--border-color);
-    box-shadow: 0px 0px 5px 2px var(--border-color);
+    box-shadow: 0px 0px 10px 2px var(--border-color);
 }
 
-.radial-ind {
+input[type="checkbox"] {
+    appearance: none;
+
     display: block;
     height: 1rem;
     width: auto;
     aspect-ratio: 1/1;
+    box-sizing: border-box;
     margin-left: var(--gap-small);
 
-    position: relative;
     justify-self: flex-start;
     align-self: flex-start;
 
     border-radius: 1000px;
-    border: solid 1px light-dark(black, white);
+    border: solid 3px light-dark(var(--border-color), var(--border-color-dark));
+
+    transition: background-color var(--trans-time);
 }
 
-.radial-ind > span {
-    display: block;
-    height: 90%;
-    width: auto;
-    aspect-ratio: 1/1;
-
-    position: absolute;
-    top: 5%;
-    left: 5%;
-
-    border-radius: 1000px;
-    transition: background-color var(--trans-time);
+input[type="checkbox"]:checked {
+    background-color: light-dark(var(--interactable-dark), var(--interactable-dark));
+    /*GLÖM EJ --amend*/
 }
 
 .radial-ind[solid] > span {
@@ -248,6 +265,15 @@ nav {
     gap: var(--gap-main);
 }
 
+.nav-list > li {
+    position: relative;
+    margin: 0 var(--gap-small);
+}
+
+.nav-list > li > * {
+
+}
+
 /*FOOTER*/
 
 footer > .footer-list {
@@ -266,6 +292,8 @@ footer > .footer-list {
     align-items: center;
 
     gap: var(--gap-main);
+
+    background-color: light-dark(var(--bg-main), var(--bg-main-dark));
 }
 
 ul[class=list-col] > * {
@@ -276,6 +304,8 @@ footer > .bottom {
     margin-bottom: var(--gap-small);
     height: max-content;
     justify-content: space-evenly;
+
+    background-color: light-dark(var(--bg-sec), var(--bg-sec-dark));
 }
 
 footer > .bottom > * {
