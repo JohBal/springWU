@@ -76,11 +76,16 @@ ul {
 }
 
 h1, h2 {
+    margin: var(--gap-small);
     text-align: center;
 }
 
 h1 {
     color: light-dark(var(--header-color), var(--header-color-dark));
+}
+
+h3 {
+    font-family: Verdana;
 }
 
 p {
@@ -143,6 +148,16 @@ abbr {
 }
 
 /*FEATURES*/
+
+.round-height {
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.round-width {
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
 
 .ign-mouse {
     pointer-events: none;

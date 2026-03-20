@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/hardron.css">
+  <link rel="stylesheet" href="./css/shared.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <div class="header-container flex-row space-between">
+        <div class="header-left center">
+          <h1>Standard model of particle physics</h1>
+        </div>
+        <nav class="header-right flex-col">
+          <ul class="nav-list flex-row flex-wrap">
+            <li><a href="./index.html" class="text-center">Table</a></li>
+            <li><a href="./hardrons.html" class="text-center">Hardrons</a></li>
+            <li><a href="./interactions.html" class="text-center">Interactions</a></li>
+            <li><a href="./about.html" class="text-center">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="current-site">
+      <h2>The hardrons</h2>
+    </section>
+
+    <aside class="side-panel">
+      <h2 class="list-space">Options</h2>
+      <form class="side-panel-list flex-row flex-wrap">
+        <label name="anti-pair">Anti-pair</label>
+        <input name="anti-pair" type="checkbox"></input>
+      </form>
+    </aside>
+
+    <section class="particles">
+      <div class="table-container">
+        <div class="upper-bar">
+          <div class="col-hd">
+            <p>Gen 1</p>
+            <p>Gen 2</p>
+            <p>Gen 3</p>
+          </div>
+          <div class="legand">
+  
+          </div>
+        </div>
+  
+        <div class="table">
+
+          <template id="tableEntry">
+            <div class="entry" draggable="true">
+              <div class="particle" role="cell" tabindex="0">
+                <ul class="particle-data-list">
+                  <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
+                  <li><label>Spin</label> <output>100</output></li>
+                  <li><label>E</label> <output>100</output></li>
+                </ul>
+                <div class="center ign-mouse">
+                  <div class="center">
+                    <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="50" cy="50" r="50" />
+                      <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
+                    </svg>
+                    <h3 class="particle-name">UP</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="hardron-details-container flex-col">
+
+      <div class="details-header flex-row">
+        <div>
+            <h2>Hardron</h2>
+            <ul class="active-list flex-row flex-wrap">
+                <li class="flex-row"><p>Proton</p><button class="round-width">X</button></li>
+            </ul>
+        </div>
+        <div class="options center">
+          <p>Drag here</p>
+        </div>
+      </div>
+
+      <div class="hardron-suggestions flex-row flex-wrap">
+        <option class="suggestion">Option 1</option>
+        <option class="suggestion">Option 2</option>
+      </div>
+
+      <div class="hardron-details">
+        <div class="header flex-row">
+            <h3>Details</h3>
+            <p>Particle</p>
+            <img height="50" width="50">
+        </div>
+
+        <div></div>
+      </div>
+
+      <div class="hardron-tree">
+        <h3>Treeview</h3>
+        <canvas></canvas>
+      </div>
+    </section>
+
+    <footer class="flex-col">
+      <div class="footer-list flex-row">
+        <section>
+          <h2>About</h2>
+          <ul class="list-col">
+            <li></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Other scientific websites</h2>
+          <ul class="list-col">
+            <li><a>Website 1</a></li>
+            <li><a>Website 22222222</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Social & contact</h2>
+          <ul class="list-col">
+            <li class="social"><a><img width="50" height="50"></a></li>
+            <li class="contact"><a>Mail</a></li>
+            <li></li>
+          </ul>
+        </section>
+      </div>
+      <div class="bottom flex-row">
+        <p>Copyright text</p>
+        <span></span>
+      </div>
+    </footer>
+  </div>
+  <script src="./js/table.js"></script>
+</body>
+</html>
