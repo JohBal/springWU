@@ -36,7 +36,42 @@ for (const particle of particles) {
         entry.style.setProperty('opacity', '0')
     } else {
         const particleName = entry.querySelector('.particle-name')
-        console.log(tableEnties.length, tableEnties, particleName)
+        //console.log(tableEnties.length, tableEnties, particleName)
         particleName.innerHTML = particle.name.toUpperCase()
     }
 }
+
+/*Sync scroll*/
+
+const particleDataLists = document.querySelectorAll('.particle-details > section')
+const lists = []
+particleDataLists.forEach((list) => {
+    lists.push(list)
+})
+
+function getParentFromQuery(child, query) {
+    let parent = child
+    while (parent.parentNode) {
+        let found = false
+        const parents = parent.parentNode.querySelectorAll(query)
+        parents.forEach((possibleParent) => {
+            if (parent.isSameNode(possibleParent)) {
+                found = true
+            }
+        })
+        if (found) { break }
+        parent = parent.parentNode
+    }
+    return parent
+}
+
+window.addEventListener('scroll', (e) => {
+    const container = getParentFromQuery(e.target, 'section')
+    if (lists.includes(container)) {
+        for (const list of lists) {
+            if (container != list) {
+                list.querySelector('.details-list').scrollTo({top: e.target.scrollTop})
+            }
+        }
+    }
+}, {capture: true})
