@@ -34,12 +34,12 @@
     --fg-dark: rgb(30, 30, 30);
     --bg-main-dark: rgb(50, 50, 50);
     --bg-sec-dark: rgb(80, 80, 80);
-    --border-color-dark: rgb(170, 170, 170);
+    --border-color-dark: rgb(66, 66, 66);
 
-    --interactable-dark: rgb(130, 130, 130);
-    --header-color-dark: rgb(69, 69, 84);
-    --title-color-dark: rgb(30, 30, 30);
-    --text-color-dark: rgb(230, 230, 230);
+    --interactable-dark: rgb(46, 46, 46);
+    --header-color-dark: rgb(218, 218, 218);
+    --title-color-dark: rgb(230, 230, 230);
+    --text-color-dark: rgb(210, 210, 210);
 
     color-scheme: light dark;
 }
@@ -47,16 +47,19 @@
 @font-face {
     font-family: Nunito;
     src: url('../fonts/Nunito-VariableFont_wght.ttf');
+    font-weight: 200 900;
 }
 
 @font-face {
     font-family: Rubik;
     src: url('../fonts/Rubik-VariableFont_wght.ttf');
+    font-weight: 300 900;
 }
 
 @font-face {
     font-family: Foldit;
     src: url('../fonts/Foldit-VariableFont_wght.ttf');
+    font-weight: 100 900;
 }
 
 * {
@@ -81,14 +84,19 @@ h1, h2 {
 }
 
 h1 {
+    font-family: 'Segoe UI';
     color: light-dark(var(--header-color), var(--header-color-dark));
+}
+
+h2:not(:only-child) {
+    font-family: Rubik;
 }
 
 h3 {
     font-family: Verdana;
 }
 
-p {
+p, h4, h5, h6 {
     font-size: 1rem;
     color: light-dark(var(--text-color), var(--text-color-dark));
     font-family: 'Nunito';
@@ -99,22 +107,26 @@ label, output {
     font-family: 'Rubik';
 }
 
-button {
+button, .button {
+    display: block;
     padding: var(--pad-small);
 
-    background-color: light-dark(var(--interactable), var(--interactable-dark));
+    background: linear-gradient(light-dark(var(--interactable), var(--interactable-dark)) 50%, rgb(10 10 10 / .2) 100%);
     color: light-dark(var(--text-color), var(--text-color-dark));
 
     font-family: 'Nunito';
     font-weight: 500;
 
     transition: background-color var(--trans-time), color var(--trans-time), box-shadow var(--trans-time);
+
+
 }
 
 button:hover:not(:disabled), button:focus:not(:disabled) {
     background-color: light-dark(var(--interactable-dark), var(--interactable));
     color: light-dark(var(--text-color-dark), var(--text-color));
-    box-shadow: 0px 2px 5px 2px var(--border-color);
+    box-shadow: 0px 2px 5px 2px light-dark(var(--border-color), var(--border-color-dark));
+    background-size: 0;
 }
 
 button:hover:not(:disabled) {
@@ -122,22 +134,9 @@ button:hover:not(:disabled) {
 }
 
 button:disabled {
-    background-color: light-dark( hsl(from var(--interactable) h s  calc(l * .9)), hsl(from var(--interactable-dark) h s  calc(l * .9)) );
-}
-
-header a {
-    text-decoration: none;
-    font-variation-settings: "wght" 500.0;
-    font-family: Nunito;
-    color: light-dark(var(--title-color), var(--title-color-dark));
-    margin: 0 2.8px;
-
-    transition: font-variation-settings .4s, margin .38s;
-}
-
-header a:hover {
-    font-variation-settings: "wght" 800.0;
-    margin: 0;
+    box-shadow: none;
+    background: hsl(from light-dark(var(--interactable), var(--interactable-dark)) h s  calc(l * .8));
+    color: hsl(from light-dark(var(--text-color), var(--text-color-dark)) h s calc(l * .8));
 }
 
 abbr {
@@ -147,7 +146,48 @@ abbr {
     text-decoration-thickness: .5px;
 }
 
+hr {
+    height: 1px;
+    background-color: light-dark(var(--border-color), var(--border-color-dark));
+    border: none;
+    margin: var(--gap-small) 0;
+}
+
+li > button {
+    height: 100%;
+}
+
 /*FEATURES*/
+
+.custom {
+    appearance: none;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.pad-small {
+    padding: var(--pad-small);
+}
+
+.gap-small {
+    gap: var(--gap-small);
+}
+
+.aspect-height {
+    height: 100%;
+    aspect-ratio: 1/1;
+}  
+
+.aspect-width {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
 
 .round-height {
     height: auto;
@@ -157,6 +197,26 @@ abbr {
 .round-width {
     height: auto;
     aspect-ratio: 1 / 1;
+}
+
+.relative {
+    position: relative;
+}
+
+h1 {
+    color: light-dark(var(--header-color), var(--header-color-dark));
+    text-shadow: aqua -1px -1px 0px,
+                    red 1px 1px 0px;
+}
+
+.text-shadow {
+    position: absolute;
+    
+    left: 0;
+    bottom: 0px;
+    transform: translate(2px, calc(30% + 4px));
+    height: 100%;
+    color: white;
 }
 
 .ign-mouse {
@@ -209,6 +269,10 @@ abbr {
     margin-bottom: var(--gap-small);
 }
 
+.list-space-2 {
+    margin-bottom: var(--gap-main);
+}
+
 .text-center {
     text-align: center;
 }
@@ -216,8 +280,8 @@ abbr {
 .border, button {
     border-radius: var(--border-radius);
     
-    border: solid 2px var(--border-color);
-    box-shadow: 0px 0px 10px 2px var(--border-color);
+    border: solid 2px light-dark(var(--border-color), var(--border-color-dark));
+    box-shadow: 0px 0px 10px 2px light-dark(var(--border-color), var(--border-color-dark));
 }
 
 input[type="checkbox"] {
@@ -233,15 +297,21 @@ input[type="checkbox"] {
     justify-self: flex-start;
     align-self: flex-start;
 
+    color: light-dark(var(--border-color), var(--border-color-dark)); /*Used for currentColor*/
     border-radius: 1000px;
-    border: solid 3px light-dark(var(--border-color), var(--border-color-dark));
+    border: solid 3px currentColor;
+    background-color: rgb(0 0 0 / 0);
 
     transition: background-color var(--trans-time);
 }
 
+input[type="checkbox"]:hover {
+    cursor: pointer;
+    border-color: hsl(from currentColor h s calc(l * 1.5));
+}
+
 input[type="checkbox"]:checked {
     background-color: light-dark(var(--interactable-dark), var(--interactable-dark));
-    /*GLÖM EJ --amend*/
 }
 
 .radial-ind[solid] > span {
@@ -274,16 +344,37 @@ header h1 {
 
 nav {
     min-width: 20%;
+    max-height: 100%;
 }
 
 .nav-list {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    grid-template-rows: 100%;
     gap: var(--gap-main);
+    max-height: 100%;
+    text-overflow: clip;
 }
 
 .nav-list > li {
     position: relative;
     margin: 0 var(--gap-small);
+    width: max-content;
 }
+
+header a {
+    text-decoration: none;
+    font-variation-settings: "wght" 500.0;
+    font-family: Nunito;
+    color: light-dark(var(--title-color), var(--title-color-dark));
+
+    transition: font-variation-settings .4s;
+}
+
+header a:hover {
+    font-variation-settings: "wght" 800.0;
+}
+
 
 .nav-list > li > * {
 
@@ -332,4 +423,13 @@ footer > .bottom > * {
     display: block;
     height: 100%;
     width: 50%;
+}
+
+@media all and (prefers-contrast: more) {
+    h1 {
+        text-shadow: none;
+    }
+    #current-site > *{
+        background-color: black;
+    }
 }

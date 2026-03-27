@@ -11,12 +11,13 @@
   <div id="wrapper">
     <header>
       <div class="header-container flex-row space-between">
-        <div class="header-left center">
+        <div class="header-left center relative">
           <h1>Standard model of particle physics</h1>
+          <!-- <h1 class="text-shadow" aria-hidden="true">Standard model of particle physics</h1> -->
         </div>
         <nav class="header-right flex-col">
-          <ul class="nav-list flex-row flex-wrap">
-            <li><a href="./index.html" class="text-center">Table</a></li>
+          <ul class="nav-list">
+            <li class="center"><a href="./index.html" class="text-center">Table</a></li>
             <li><a href="./hardrons.html" class="text-center">Hardrons</a></li>
             <li><a href="./interactions.html" class="text-center">Interactions</a></li>
             <li><a href="./about.html" class="text-center">About</a></li>
@@ -89,8 +90,23 @@
 
       <div class="particle-details">
         <section>
-          <div class="details-list-header flex-row">
-            <h3 class="line-seperator list-space">Particle</h3>
+          <div class="details-list-header">
+            <div class="flex-row">
+              <h3 class="list-space-2">Particle</h3>
+              <svg class="aspect-height" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="50" />
+                  <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
+              </svg>
+            </div>
+            <hr>
+
+            <h4 class="list-space">Variants of particle</h4>
+            <ul class="flex-row gap-small">
+              <li class="border pad-small"><button>Up<sup>+</sup></button></li>
+              <li class="border pad-small"><button>Up</button></li>
+              <li class="border pad-small"><button>Up</button></li>
+              <li class="border pad-small"><button>Up</button></li>
+            </ul>
           </div>
           <ul class="details-list flex-row flex-wrap">
             <li class="details-category">
@@ -103,7 +119,7 @@
 
                 <li class="flex-row">
                   <label>Data</label>
-                  <output class="tags flex-row"><p>a</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p></output>
+                  <output class="tags flex-row"><span class="tag h100">Tag</span></output>
                 </li>
 
                 <li class="flex-row">
@@ -198,6 +214,135 @@
                 </li>
           </ul>
         </section>
+
+
+
+        <section>
+          <div class="details-list-header">
+            <div class="flex-row">
+              <h3 class="list-space-2">Particle</h3>
+              <svg class="aspect-height" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="50" />
+                  <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
+              </svg>
+            </div>
+            <hr>
+
+            <h4 class="list-space">Variants of particle</h4>
+            <ul class="flex-row gap-small">
+              <li class="border pad-small"><button>Up<sup>+</sup></button></li>
+              <li class="border pad-small"><button>Up</button></li>
+              <li class="border pad-small"><button>Up</button></li>
+              <li class="border pad-small"><button>Up</button></li>
+            </ul>
+          </div>
+          <ul class="details-list flex-row flex-wrap">
+            <li class="details-category">
+              <h4 class="details-category-header text-center">Category name</h4>
+              <ul class="details-category-list flex-col flex-wrap">
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output class="str-data">Value<select class="unit-selector"><option>kg</option></select></output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output class="tags flex-row"><span class="tag h100">Tag</span></output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+              </ul>
+            </li>
+
+            <li class="details-category">
+              <h4 class="details-category-header text-center">Category name</h4>
+              <ul class="details-category-list flex-col flex-wrap">
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                <li class="flex-row">
+                  <label>Data</label>
+                  <output>Value</output>
+                </li>
+                </ul>
+                </li>
+          </ul>
+        </section>
+
         
       </div>
     </section>
