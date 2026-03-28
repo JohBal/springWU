@@ -7,6 +7,8 @@
 
     position: relative;
     z-index: 2;
+
+    background-color: light-dark(var(--bg-main), var(--bg-main-dark));
 }
 
 header {

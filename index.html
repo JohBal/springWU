@@ -11,6 +11,7 @@
   <div id="wrapper">
     <header>
       <div class="header-container flex-row space-between">
+        <input type="checkbox" class="mobile-menu-btn custom">
         <div class="header-left center relative">
           <h1>Standard model of particle physics</h1>
           <!-- <h1 class="text-shadow" aria-hidden="true">Standard model of particle physics</h1> -->
@@ -30,12 +31,16 @@
       <h2>The table</h2>
     </section>
 
-    <aside class="side-panel">
-      <h2 class="list-space">Options</h2>
-      <form class="side-panel-list flex-row flex-wrap">
-        <label name="anti-pair">Anti-pair</label>
-        <input name="anti-pair" type="checkbox"></input>
-      </form>
+    <aside class="side-panel-container">
+      <hr>
+      <div class="side-panel">
+        <h2 class="list-space title">Options</h2>
+        <form class="side-panel-list flex-row flex-wrap">
+          <label name="anti-pair">Anti-pair</label>
+          <input name="anti-pair" type="checkbox"></input>
+        </form>
+      </div>
+      <hr>
     </aside>
 
     <section class="particles">
@@ -363,7 +368,7 @@
         </section>
         <section>
           <h2>Social & contact</h2>
-          <ul class="list-col">
+          <ul class="grid-collage">
             <li class="social"><a><img width="50" height="50"></a></li>
             <li class="contact"><a>Mail</a></li>
             <li></li>

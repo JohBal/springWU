@@ -36,13 +36,13 @@ header {
 
     background-image: url("../img/dotImgBlack.svg");
     background-repeat: repeat;
-    background-size: 20%;
+    background-size: 150px;
     
     font-family: Foldit, Verdana;
     font-size: 2rem;
 }
 
-.side-panel {
+.side-panel-container {
     grid-area: sp;
 
     margin-left: var(--pad-small);
@@ -236,6 +236,7 @@ footer {
     min-height: 200px;
     max-height: min(10vw, 500px);
     overflow-y: auto;
+    overflow-x: hidden;
 
     container-type: scroll-state;
 
@@ -346,6 +347,11 @@ footer {
 
 /*SIDEBAR*/
 
+.side-panel > .title {
+    height: max-content;
+    font-size: 1.2rem;
+}
+
 .side-panel-list {
     position: relative;
     align-items: center;
@@ -353,45 +359,16 @@ footer {
 
 .side-panel-list > label {
     width: calc(80% - var(--gap-small) * 2);
+    font-size: .8rem;
 }
 
 .side-panel-list > input {
     width: 20%;
-    align-items: center;
 }
 
 /*Mobile optimization*/
 
-@media all and (width < 750px) {
-    #wrapper {
-        grid-template-rows: 80px auto auto 10vw 4fr auto;
-        grid-template-areas:
-        "hd hd hd"
-        ". cs ."
-        ". tb ."
-        ". sp ."
-        ". td ."
-        "ft ft ft";
-    }
-
-    .side-panel {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-
-        display: flex;
-        flex-direction: row;
-
-        &:nth-child(1) {
-            margin-right: var(--gap-small);
-        }
-
-        &.side-panel-list {
-            overflow-x: auto;
-        }
-    }
-
-
+@media all and (width < 1200px) {
     .particle-data-list {
         opacity: 0;
         width: calc(100% + var(--pad-small) / 2);
@@ -412,6 +389,50 @@ footer {
     .particle-data-list:hover {
         opacity: 1;
         background-color: rgb(150 150 150 / .7);
+    }
+
+    .particle > .center {
+        font-size: .8rem;
+    }
+
+    .particles {
+        padding: 1em;
+    }
+}
+
+@media all and (width < 800px) {
+    #wrapper {
+        grid-template-rows: 80px auto auto 10vw 4fr auto;
+        grid-template-areas:
+        "hd hd hd"
+        ". cs ."
+        ". tb ."
+        ". sp ."
+        ". td ."
+        "ft ft ft";
+    }
+
+    .side-panel {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+
+        display: flex;
+        flex-direction: row;
+        column-gap: var(--gap-small);
+
+        &:nth-child(1) {
+            margin-right: var(--gap-small);
+        }
+
+        &>.side-panel-list {
+            overflow-x: auto;
+        }
+
+        &>.title {
+            margin: auto 0;
+            margin-right: var(--gap-main);
+        }
     }
 
     .particle > .center {
