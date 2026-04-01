@@ -1,0 +1,27 @@
+#status {
+    width: fit-content;
+    max-width: 100vw;
+    max-height: 50vh;
+
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+
+    padding: var(--pad-main);
+    
+    border-radius: var(--border-radius);
+    border: solid 1px var(--border-color-dark);
+    background-color: rgb(20 20 20);
+
+    visibility: hidden;
+}
+
+#status > div {
+    width: 100%;
+    align-items: center;
+}
+
+#status > p {
+    width: 100%;
+    height: fit-content;
+}

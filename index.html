@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/shared.css">
+  <link rel="stylesheet" href="./css/status.css">
   <title>Document</title>
 </head>
 <body>
+  <div id="status">
+    <div class="flex-row gap-small">
+      <img width="20" height="20">
+      <h2>Status</h2>
+    </div>
+    <p>This is a description</p>
+  </div>
+
   <div id="wrapper">
     <header>
       <div class="header-container flex-row space-between">
@@ -37,7 +46,7 @@
         <h2 class="list-space title">Options</h2>
         <form class="side-panel-list flex-row flex-wrap">
           <label name="anti-pair">Anti-pair</label>
-          <input name="anti-pair" type="checkbox"></input>
+          <input name="anti-pair" type="checkbox" class="checkbox"></input>
         </form>
       </div>
       <hr>
@@ -61,12 +70,12 @@
           <template id="tableEntry">
             <div class="entry">
               <div class="particle" role="cell" tabindex="0">
-                <ul class="particle-data-list">
+                <ul class="particle-data-list ign-point">
                   <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
                   <li><label>Spin</label> <output>100</output></li>
                   <li><label>E</label> <output>100</output></li>
                 </ul>
-                <div class="center ign-mouse">
+                <div class="center ign-point">
                   <div class="center">
                     <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="50" cy="50" r="50" />
@@ -92,30 +101,30 @@
         </div>
       </div>
 
-      <div class="particle-details">
+      <div class="particle-details flex-row flex-stretch gap-small">
         <section>
-          <div class="details-list-header">
-            <div class="flex-row">
+          <div class="details-list-header list-space-2">
+            <div class="flex-row gap-small">
               <h3 class="list-space-2">Particle</h3>
               <svg class="aspect-height" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="50" cy="50" r="50" />
                   <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
               </svg>
             </div>
-            <hr>
+            <hr class="list-space-2">
 
             <h4 class="list-space">Variants of particle</h4>
             <ul class="flex-row gap-small">
-              <li class="border pad-small"><button>Up<sup>+</sup></button></li>
-              <li class="border pad-small"><button>Up</button></li>
-              <li class="border pad-small"><button>Up</button></li>
-              <li class="border pad-small"><button>Up</button></li>
+              <li class="pad-small"><button>Up<sup>+</sup></button></li>
+              <li class="pad-small"><button>Up</button></li>
+              <li class="pad-small"><button>Up</button></li>
+              <li class="pad-small"><button>Up</button></li>
             </ul>
           </div>
           <ul class="details-list flex-row flex-wrap">
             <li class="details-category">
               <h4 class="details-category-header text-center">Category name</h4>
-              <ul class="details-category-list flex-col flex-wrap">
+              <ul class="details-category-list flex-col flex-wrap gap-small">
                 <li class="flex-row">
                   <label>Data</label>
                   <output class="str-data">Value<select class="unit-selector"><option>kg</option></select></output>
@@ -123,7 +132,14 @@
 
                 <li class="flex-row">
                   <label>Data</label>
-                  <output class="tags flex-row"><span class="tag h100"><p>Tag</p></span></output>
+                  <output class="tags flex-row">
+                    <span class="tag h100"><p>Tag</p></span>
+                    <span class="tag h100"><p>Tag</p></span>
+                    <span class="tag h100"><p>Tag</p></span>
+                    <span class="tag h100"><p>Tag</p></span>
+                    <span class="tag h100"><p>Tag</p></span>
+                    <span class="tag h100"><p>Tag</p></span>
+                  </output>
                 </li>
 
                 <li class="flex-row">
@@ -167,7 +183,7 @@
 
             <li class="details-category">
               <h4 class="details-category-header text-center">Category name</h4>
-              <ul class="details-category-list flex-col flex-wrap">
+              <ul class="details-category-list flex-col flex-wrap gap-small">
                 <li class="flex-row">
                   <label>Data</label>
                   <output>Value</output>
@@ -222,28 +238,28 @@
 
 
         <section>
-          <div class="details-list-header">
-            <div class="flex-row">
+          <div class="details-list-header list-space-2">
+            <div class="flex-row gap-small">
               <h3 class="list-space-2">Particle</h3>
               <svg class="aspect-height" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="50" cy="50" r="50" />
                   <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
               </svg>
             </div>
-            <hr>
+            <hr class="list-space-2">
 
             <h4 class="list-space">Variants of particle</h4>
             <ul class="flex-row gap-small">
-              <li class="border pad-small"><button>Up<sup>+</sup></button></li>
-              <li class="border pad-small"><button>Up</button></li>
-              <li class="border pad-small"><button>Up</button></li>
-              <li class="border pad-small"><button>Up</button></li>
+              <li class="pad-small"><button>Up<sup>+</sup></button></li>
+              <li class="pad-small"><button>Up</button></li>
+              <li class="pad-small"><button>Up</button></li>
+              <li class="pad-small"><button>Up</button></li>
             </ul>
           </div>
           <ul class="details-list flex-row flex-wrap">
             <li class="details-category">
               <h4 class="details-category-header text-center">Category name</h4>
-              <ul class="details-category-list flex-col flex-wrap">
+              <ul class="details-category-list flex-col flex-wrap gap-small">
                 <li class="flex-row">
                   <label>Data</label>
                   <output class="str-data">Value<select class="unit-selector"><option>kg</option></select></output>
@@ -295,7 +311,7 @@
 
             <li class="details-category">
               <h4 class="details-category-header text-center">Category name</h4>
-              <ul class="details-category-list flex-col flex-wrap">
+              <ul class="details-category-list flex-col flex-wrap gap-small">
                 <li class="flex-row">
                   <label>Data</label>
                   <output>Value</output>
@@ -352,7 +368,7 @@
     </section>
 
     <footer class="flex-col">
-      <div class="footer-list flex-row">
+      <div class="footer-list gap-small">
         <section>
           <h2>About</h2>
           <ul class="list-col">

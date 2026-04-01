@@ -51,6 +51,8 @@ header {
 .particles {
     grid-area: tb;
 
+    overflow-x: auto;
+
     box-sizing: content-box;
     padding: var(--pad-large);
 
@@ -88,6 +90,7 @@ footer {
 .table-container {
     width: 100%;
     height: auto;
+    min-width: 450px;
 
     display: grid;
     grid-template-columns: repeat(5, 20%);
@@ -153,6 +156,21 @@ footer {
     padding: calc(var(--pad-small) / 2);
 }
 
+@property --radial-end {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 75%;
+}
+
+@keyframes particle-hover {
+    from {
+        --radial-end: 75%;
+    }
+    to {
+        --radial-end: -50%;
+    }
+}
+
 .particle {
     width: 100%;
     height: 100%;
@@ -164,8 +182,12 @@ footer {
     box-sizing: border-box;
     padding: calc(var(--pad-small) / 2);
 
+    background: radial-gradient(circle at 100% 100%, rgb(0 0 0 / 0) var(--radial-end), light-dark(rgb(92 105 66 / .5), rgb(92 105 66 / 1)));
+
+    transition: border-color var(--trans-time);
+
     & .particle-name {
-        width: 200%;
+        width: 100%;
         height: fit-content;
     
         text-align: center;
@@ -174,6 +196,9 @@ footer {
     & .particle-img {
         width: 100%;
         aspect-ratio: 1/1;
+
+        box-sizing: border-box;
+        padding: 10px;
     }
 
     & > .center {
@@ -189,14 +214,25 @@ footer {
     }
 
     & .particle-data-list {
-        font-size: .6rem;
-
+        width: 100%;
+        height: 100%;
+        font-size: .7rem;
     }
 
-    & .particle-data-list:first-child {
+    & .particle-data-list > *:first-child {
         margin-top: .5rem;
+    }
+
+    & .particle-data-list > * {
         margin-left: .5rem;
     }
+
+}
+
+.particle:hover, .particle:focus {
+    border-color: hsl(from var(--border-color) h s calc(l * 1.2 ));
+    
+    animation: particle-hover .2s linear forwards;
 }
 
 /*TABLE DATA*/
@@ -212,9 +248,9 @@ footer {
 }
 
 .particle-details {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 100%;
+    display: flex;
+    /* grid-template-columns: 50% 50%;
+    grid-template-rows: 100%; */
     reading-flow: grid-order; /*NOT BASELINE*/
 
     position: relative;
@@ -230,6 +266,10 @@ footer {
 .particle-details:nth-child(1) {
     order: 1;
     display: none;
+}
+
+.particle-details > * {
+    min-width: 250px;
 }
 
 .details-list {
@@ -279,7 +319,6 @@ footer {
     width: 100%;
     background-color: light-dark(var(--bg-sec), var(--bg-sec-dark));
 
-    gap: var(--gap-small);
     border-radius: var(--border-radius);
 
     &>li {
@@ -321,16 +360,18 @@ footer {
 
 .tags {
     scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+    overscroll-behavior-x: contain;
     overflow-x: auto;
 }
 
 .tag {
-    width: max-content;
+    width: auto;
+    margin-left: var(--gap-small);
     padding: calc(var(--pad-small) / 2);
 
-    box-shadow: 0 10px 0 -5px rgb(200 200 200);
     border-radius: var(--border-radius);
-    border: solid 1px light-dark(var(--border-color), var(--border-color-dark));
+    border: solid 2px light-dark(var(--border-color), var(--border-color-dark));
 }
 
 .tag > p {
@@ -338,14 +379,19 @@ footer {
     height: 90%;
     padding: var(--pad-small);
 
-    border-radius: var(--border-radius);
-    background-color: aqua;
+    border-radius: calc(var(--border-radius) * .5);
+    background-color: hsl(from currentColor h s calc(l * .3));
+    color: rgb(from var(--text-color-dark) r g calc(b * 1.05));
 }
 
 
 
 
 /*SIDEBAR*/
+
+.side-panel {
+    height: 100%;
+}
 
 .side-panel > .title {
     height: max-content;
@@ -363,7 +409,7 @@ footer {
 }
 
 .side-panel-list > input {
-    width: 20%;
+    max-width: 20%;
 }
 
 /*Mobile optimization*/
@@ -388,11 +434,15 @@ footer {
 
     .particle-data-list:hover {
         opacity: 1;
-        background-color: rgb(150 150 150 / .7);
+        background-color: rgb(106 139 84 / 0.842);
     }
 
     .particle > .center {
         font-size: .8rem;
+    }
+
+    .particle > .center > div {
+        width: 80%;
     }
 
     .particles {
@@ -402,6 +452,7 @@ footer {
 
 @media all and (width < 800px) {
     #wrapper {
+        grid-template-columns: 10px calc(100% - 20px) 10px;
         grid-template-rows: 80px auto auto 10vw 4fr auto;
         grid-template-areas:
         "hd hd hd"
@@ -410,6 +461,7 @@ footer {
         ". sp ."
         ". td ."
         "ft ft ft";
+        column-gap: 0;
     }
 
     .side-panel {
@@ -436,7 +488,7 @@ footer {
     }
 
     .particle > .center {
-        font-size: .5rem;
+        font-size: .7rem;
     }
 }
 

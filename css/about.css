@@ -37,7 +37,6 @@ footer {
 
 #wrapper > section:not(:first-of-type) {
     transform: translate(0, var(--hidden-pos));
-    transition: transform .5s;
 }
 
 .show {

@@ -19,18 +19,44 @@ circleGroups.forEach((circleGroup) => {
     animate(circleGroup, 0, 0, 1)
 })
 
+function a() {
+    console.log('A')
+    return 1
+}
+
+async function sleep(delay) {
+    await new Promise((res, rej) => {
+        setTimeout(() => {
+            res()
+        }, delay)
+    })
+}
+
+async function updateSectionPos(delay) {
+    const sectionIterator = sections.values()
+    for (let i = 0; i < sections.length; i++) {
+        
+        await sleep(delay)
+        
+        const section = sectionIterator.next().value
+        section.style.setProperty('transition', 'transform .5s') //Set transition property
+        if (section.getBoundingClientRect().top + 40 < window.innerHeight) {
+            section.classList.add('show')
+        } else {
+            section.classList.remove('show')
+        }
+    }
+}
+
 const sections = document.querySelectorAll('#wrapper > section:not(:first-of-type)')
+sections.forEach((section) => {
+    section.style.setProperty('--hidden-pos', '40px')
+})
+
+updateSectionPos(200)
+
 window.addEventListener('scroll', (e) => {
     if (e.target == document) {
-        sections.forEach((section) => {
-            section.style.setProperty('--hidden-pos', '20px')
-            //console.log(section.getBoundingClientRect().top + 20, window.innerHeight)
-
-            if (section.getBoundingClientRect().top + 20 < window.innerHeight) {
-                section.classList.add('show')
-            } else {
-                section.classList.remove('show')
-            }
-        })
+        updateSectionPos(0)
     }
 }, {passive: true})
