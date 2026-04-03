@@ -245,6 +245,10 @@ li > button {
     flex: 1;
 }
 
+.flex-center {
+    justify-content: center;
+}
+
 .space-between {
     justify-content: space-between;
 }
@@ -396,6 +400,9 @@ header a:hover {
 footer {
     margin-top: 100px; /*Must be atleast size of the section y-transform when hovered*/
     background-color: light-dark(var(--bg-main), var(--bg-main-dark));
+
+    /* box-shadow: inset 0px 2px 6px -2px black; */
+    border-top: 1px solid light-dark(var(--border-color), var(--border-color-dark));
 }
 
 .footer-list {
@@ -410,7 +417,6 @@ footer {
     height: calc(100% - 2 * var(--gap-small));
     justify-content: space-around;
 
-    border-top: 1px solid light-dark(var(--border-color), var(--border-color-dark));
 }
 
 .footer-list > *:last-child {
