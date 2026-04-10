@@ -32,14 +32,6 @@ header {
 
 #current-site {
     grid-area: cs;
-    padding: 1%;
-
-    background-image: url("../img/dotImgBlack.svg");
-    background-repeat: repeat;
-    background-size: 150px;
-    
-    font-family: Foldit, Verdana;
-    font-size: 2rem;
 }
 
 .side-panel-container {
@@ -78,12 +70,6 @@ footer {
 /*ELEMENT SPECIFIC*/
 
 /*-----------------------------*/
-
-#current-site > * {
-    width: max-content;
-    height: 100%;
-    margin: 0 auto;
-}
 
 /*TABLE*/
 
@@ -182,9 +168,14 @@ footer {
     box-sizing: border-box;
     padding: calc(var(--pad-small) / 2);
 
-    background: radial-gradient(circle at 100% 100%, rgb(0 0 0 / 0) var(--radial-end), light-dark(rgb(92 105 66 / .5), rgb(92 105 66 / 1)));
+    --ind-color: rgb(88, 104, 84); /*Default color*/
+    --ind-color-light: rgb(from var(--ind-color) r g b / .5);
+    --radial-end: 75%;
+    background: radial-gradient(circle at 100% 100%, 
+                rgb(0 0 0 / 0) var(--radial-end), 
+                light-dark(var(--ind-color-light), var(--ind-color)));
 
-    transition: border-color var(--trans-time);
+    transition: --radial-end var(--trans-time);
 
     & .particle-name {
         width: 100%;
@@ -225,6 +216,10 @@ footer {
 
     & .particle-data-list > * {
         margin-left: .5rem;
+
+        & > * {
+            color: var(--text-color-dark); /*Force light colors*/
+        }
     }
 
 }
@@ -232,10 +227,13 @@ footer {
 .particle:hover, .particle:focus {
     border-color: hsl(from var(--border-color) h s calc(l * 1.2 ));
     
-    animation: particle-hover .2s linear forwards;
+    /* animation: particle-hover .2s linear forwards; */
+    --radial-end: -50%;
 }
 
 /*TABLE DATA*/
+
+/*Uppermost header*/
 
 .particle-details-container > .details-header {
     margin-bottom: calc(var(--gap-large) / 2);
@@ -247,8 +245,9 @@ footer {
     }
 }
 
+/*Container for each particle*/
+
 .particle-details {
-    display: flex;
     /* grid-template-columns: 50% 50%;
     grid-template-rows: 100%; */
     reading-flow: grid-order; /*NOT BASELINE*/
@@ -272,16 +271,18 @@ footer {
     min-width: 250px;
 }
 
+/*Section for each particle*/
+
 .details-list {
     min-height: 200px;
     max-height: min(10vw, 500px);
     overflow-y: auto;
     overflow-x: hidden;
 
-    container-type: scroll-state;
-
     position: relative;
 }
+
+/*Header for each particle*/
 
 .details-list-header > ul > li > button {
     height: 100%;
@@ -297,56 +298,61 @@ footer {
     width: auto;
 }
 
+/*Category*/
+
 .details-category  {
     width: 100%;
 }
 
+/*The header for each category*/
+
 .details-category-header {
     position: sticky;
-    top: 2%;
+    top: 0;
 
     height: 20px;
     margin: var(--gap-main) 0;
 
-    color: currentColor;
-    transition: color var(--trans-time);
-}
-
-.details-category-header::before {
-    content: "";
-    display: block;
-    height: 100%;
-    aspect-ratio: 1/1;
-    background-image: url('../img/square-caret-down-regular-full-white.svg');
-
+    /* color: currentColor;
     transition: filter var(--trans-time);
+    filter: brightness(1); */
+
+    container-type: scroll-state;
+    container-name: sticky-heading;
 }
 
-@container scroll-state(scrollable: top) {
-    .details-category-header {
-        color: rgb(from currentColor r g b / .2);
+/* .details-category-header >  {
+    opacity: 1;
+} */
 
-        &::before {
-            filter: brightness(.4);
-        }
+@container sticky-heading scroll-state(stuck: top) {
+    h4, img {
+        opacity: .7;
     }
 }
 
+/*The table that containes that data*/
+
 .details-category-list {
     width: 100%;
-    background-color: light-dark(var(--fg), var(--fg-dark));
+    color: light-dark(var(--fg), var(--fg-dark));
+    background-color: currentColor;
 
     border-radius: var(--border-radius);
     border: solid 1px rgb(100 100 100);
     box-sizing: border-box;
+
+    --text-color: #4b4b4b;
+    --text-color-dark: #a5a5a5;
 
     &>li {
         min-height: 50px;
         width: 100%;
         justify-content: space-between;
         
-        color: light-dark(var(--fg), var(--fg-dark));
-        /* background-color: currentColor; */
+        /* color: light-dark(var(--fg), var(--fg-dark)); */
+        color: inherit;
+        background-color: currentColor;
         /* background: linear-gradient(90deg, hsl(from var(--fg) h s calc(l * .7)), var(--fg)); */
     }
     &>li > label {
@@ -355,7 +361,6 @@ footer {
         align-self: center;
         margin-left: var(--pad-main);
 
-        color: #7a7a7a;
         text-wrap: balance;
     }
 
@@ -382,7 +387,7 @@ footer {
 }
 
 
-/**/
+/*Data types*/
 
 .str-data {
     height: fit-content;
@@ -435,18 +440,31 @@ footer {
     font-size: 1.2rem;
 }
 
-.side-panel-list {
+.side-panel-form {
     position: relative;
     align-items: center;
 }
 
-.side-panel-list > label {
+.side-panel-form > label {
     width: calc(80% - var(--gap-small) * 2);
     font-size: .8rem;
 }
 
-.side-panel-list > input {
+.side-panel-form > input {
+    display: inline-block;
     max-width: 20%;
+
+    transform: translate(0, 25%);
+    
+}
+
+/*Contrast optimizations*/
+
+@media all and (prefers-contrast: more) {
+    /*Category header does not stick when scrolled*/
+    .details-category-header {
+        position: relative;
+    }
 }
 
 /*Mobile optimization*/
@@ -469,9 +487,9 @@ footer {
         transition: opacity .3s, background-color .3s;
     }
 
-    .particle-data-list:hover {
-        opacity: 1;
-        background-color: rgb(106 139 84 / 0.842);
+    .particle:hover > .particle-data-list {
+        opacity: .8;
+        background-color: light-dark(var(--ind-color-light), var(--ind-color));
     }
 
     .particle > .center {
@@ -526,13 +544,5 @@ footer {
 
     .particle > .center {
         font-size: .7rem;
-    }
-}
-
-/*Dark color scheme optimization*/
-
-@media all and (prefers-color-scheme: dark) {
-    #current-site {
-        background-image: url("../img/dotImgWhite.svg");
     }
 }

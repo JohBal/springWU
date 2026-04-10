@@ -75,3 +75,34 @@ window.addEventListener('scroll', (e) => {
         }
     }
 }, {capture: true})
+
+
+
+const statusCont = document.querySelector('#status')
+const statusTitle = statusCont.querySelector('.title')
+const statusDesc = statusCont.querySelector('.desc')
+const statusIcon = statusCont.querySelector('.icon')
+
+statusCont.style.setProperty('--trans-time', '.2s')
+
+let statusQuene = []
+function showStatus(type, title, msg) {
+    if (statusCont.classList.contains('show')) {
+        statusQuene.push([type, title, msg])
+    } else {
+        statusTitle.innerHTML = title
+        statusDesc.innerHTML = msg
+        statusCont.classList.add('show')
+        if (statusQuene.length > 0) { statusQuene.splice(0, 1) }
+        setTimeout(() => {
+            statusCont.classList.remove('show')
+            if (statusQuene.length > 0) {
+                setTimeout(showStatus, 300, statusQuene[0][0], statusQuene[0][1], statusQuene[0][2]) 
+            }
+        }, 200 * msg.length + 5000)
+    }
+}
+
+showStatus(1, 'Message', 'A status update')
+showStatus(1, 'Message', 'A status update 1')
+showStatus(1, 'Message', 'A status update 2')

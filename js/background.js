@@ -53,10 +53,10 @@ sections.forEach((section) => {
     section.style.setProperty('--hidden-pos', '40px')
 })
 
-updateSectionPos(200)
+updateSectionPos(100)
 
 window.addEventListener('scroll', (e) => {
     if (e.target == document) {
-        updateSectionPos(0)
+        updateSectionPos(200)
     }
 }, {passive: true})
