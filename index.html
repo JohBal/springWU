@@ -52,7 +52,7 @@
       <hr>
     </aside>
 
-    <section class="particles">
+    <section class="particles round-border">
       <div class="table-container">
         <div class="upper-bar">
           <div class="col-hd">
@@ -61,7 +61,21 @@
             <p>Gen 3</p>
           </div>
           <div class="legand">
-  
+            <ul class="hide-scroll flex-row">
+              <li>
+                <p>Legend</p>
+              </li>
+
+              <li class="flex-row">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </li>
+            </ul>
+            <span class="scroll-marker flex-row flex-center gap-small">
+              <span class="aspect-height"></span>
+              <span class="aspect-height"></span>
+            </span>
           </div>
         </div>
   
@@ -69,7 +83,7 @@
 
           <template id="tableEntry">
             <div class="entry">
-              <div class="particle" role="cell" tabindex="0">
+              <div class="particle round-border" role="cell" tabindex="0">
                 <ul class="particle-data-list ign-point">
                   <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
                   <li><label>Spin</label> <output>100</output></li>
@@ -92,7 +106,7 @@
       </div>
     </section>
 
-    <section class="particle-details-container">
+    <section class="particle-details-container round-border">
       <div class="details-header flex-row">
         <h2>Details</h2>
         <div class="options flex-row flex-wrap">
@@ -134,7 +148,7 @@
                 <h4>Category name</h4>
               </div>
 
-              <ul class="details-category-list flex-col flex-wrap">
+              <ul class="details-category-list round-border flex-col flex-wrap">
 
                 <li class="flex-row">
                   <label>Data</label>

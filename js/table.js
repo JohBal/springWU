@@ -103,6 +103,36 @@ function showStatus(type, title, msg) {
     }
 }
 
-showStatus(1, 'Message', 'A status update')
+/* showStatus(1, 'Message', 'A status update')
 showStatus(1, 'Message', 'A status update 1')
-showStatus(1, 'Message', 'A status update 2')
+showStatus(1, 'Message', 'A status update 2') */
+
+const scrollers = document.querySelectorAll('.hide-scroll')
+
+scrollers.forEach((scroller) => {
+    console.log(scroller)
+    let e = []
+    const elems = scroller.querySelectorAll('li')
+
+    const obs = new IntersectionObserver((entries) => {
+        for (let entry of entries) {
+            console.log(entry)
+            if (entry.target && !entry.intersection) {
+                entry.target.style.setProperty('background-color', 'aqua')
+                
+                let t = scroller.parentElement.lastElementChild.children[e.indexOf(entry.target)]
+                console.log(t)
+                for (let child of scroller.parentElement.lastElementChild.children) {
+                    child.style.setProperty('background-color', null)    
+                }
+                t.style.setProperty('background-color', 'aqua')
+
+            } 
+        }
+    }, {root: scroller})
+
+    elems.forEach((elem) => {
+        e.push(elem)
+        obs.observe(elem)
+    })
+})

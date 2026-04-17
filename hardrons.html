@@ -11,11 +11,13 @@
   <div id="wrapper">
     <header>
       <div class="header-container flex-row space-between">
-        <div class="header-left center">
+        <input type="checkbox" class="mobile-menu-btn custom">
+        <div class="header-left center relative">
           <h1>Standard model of particle physics</h1>
+          <!-- <h1 class="text-shadow" aria-hidden="true">Standard model of particle physics</h1> -->
         </div>
         <nav class="header-right flex-col">
-          <ul class="nav-list flex-row flex-wrap">
+          <ul class="nav-list">
             <li><a href="./index.html" class="text-center">Table</a></li>
             <li><a href="./hardrons.html" class="text-center">Hardrons</a></li>
             <li><a href="./interactions.html" class="text-center">Interactions</a></li>
@@ -37,7 +39,7 @@
       </form>
     </aside>
 
-    <section class="particles">
+    <section class="particles round-border">
       <div class="table-container">
         <div class="upper-bar">
           <div class="col-hd">
@@ -53,14 +55,14 @@
         <div class="table">
 
           <template id="tableEntry">
-            <div class="entry" draggable="true">
-              <div class="particle" role="cell" tabindex="0">
-                <ul class="particle-data-list">
+            <div class="entry">
+              <div class="particle round-border" role="cell" tabindex="0">
+                <ul class="particle-data-list ign-point">
                   <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
                   <li><label>Spin</label> <output>100</output></li>
                   <li><label>E</label> <output>100</output></li>
                 </ul>
-                <div class="center ign-mouse">
+                <div class="center ign-point">
                   <div class="center">
                     <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="50" cy="50" r="50" />

@@ -121,6 +121,10 @@ label, output {
     font-family: 'Rubik';
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 section a {
     --trans-time: .2s;
 
@@ -195,11 +199,13 @@ abbr {
     font-family: Rubik;
     font-style: italic;
     font-weight: 400;
+
+    text-shadow: 0px 0px 4px white;
 }
 
 abbr:hover {
     cursor: default; /*Prevent text cursor*/
-    font-weight: 500;
+    font-weight: 700;
 }
 
 hr {
@@ -227,6 +233,10 @@ li > button {
 
 .relative {
     position: relative;
+}
+
+.hide-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 .text-shadow {
@@ -285,6 +295,10 @@ li > button {
 .round-width {
     height: auto;
     aspect-ratio: 1 / 1;
+}
+
+.round-border {
+    border-radius: var(--border-radius);
 }
 
 
@@ -544,7 +558,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-
+    column-gap: 4px;
 
     width: 100%;
 
@@ -571,7 +585,6 @@ footer {
 
     gap: var(--gap-main);
 
-    border-radius: var(--border-radius);
     background-color: light-dark(var(--bg-main), var(--bg-main-dark));
     border-top: 1px solid rgb(0 0 0 / 0);
 
@@ -581,7 +594,6 @@ footer {
 .footer-list > section:hover {
     transform: translate(0, -10px);
 
-    border-radius: var(--border-radius);
     border-top: solid 2px light-dark(var(--border-color), var(--border-color-dark));
     box-shadow: var(--border-box-shadow)
 }
