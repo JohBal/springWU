@@ -40,7 +40,7 @@ async function updateSectionPos(delay) {
         
         const section = sectionIterator.next().value
         section.style.setProperty('transition', 'transform .5s') //Set transition property
-        if (section.getBoundingClientRect().top + 40 < window.innerHeight) {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
             section.classList.add('show')
         } else {
             section.classList.remove('show')

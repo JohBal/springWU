@@ -473,18 +473,19 @@ footer {
     scroll-snap-align: center;
     overscroll-behavior-x: contain;
     overflow-x: auto;
+
+    padding: calc(var(--pad-small) / 2);
 }
 
 .tag {
     width: auto;
     margin-left: var(--gap-small);
-    padding: calc(var(--pad-small) / 2);
 
-    border-radius: var(--border-radius);
-    border: solid 2px light-dark(var(--border-color), var(--border-color-dark));
+    /* border-radius: var(--border-radius); */
+    /* border: solid 2px light-dark(var(--border-color), var(--border-color-dark)); */
 }
 
-.tag > p {
+.tag {
     width: max-content;
     height: 90%;
     padding: var(--pad-small);

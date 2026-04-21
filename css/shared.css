@@ -186,7 +186,7 @@ button:hover:not(:disabled) {
 
 button:disabled {
     box-shadow: none;
-    background: linear-gradient( hsl(from light-dark(var(--interactable), var(--interactable-dark)) h s calc(l * .8)) 50%, rgb(10 10 10 / .5) 100%);
+    background: linear-gradient( hsl(from light-dark(var(--interactable), var(--interactable-dark)) h s calc(l * .8)) 0%, rgb(10 10 10 / .5) 80%);
     color: hsl(from light-dark(var(--text-color), var(--text-color-dark)) h s calc(l * .8));
 }
 

@@ -117,22 +117,23 @@ scrollers.forEach((scroller) => {
     const obs = new IntersectionObserver((entries) => {
         for (let entry of entries) {
             console.log(entry)
-            if (entry.target && !entry.intersection) {
+            if (entry.target && !entry.intersection && entry.intersectionRatio == 1) {
                 entry.target.style.setProperty('background-color', 'aqua')
                 
                 let t = scroller.parentElement.lastElementChild.children[e.indexOf(entry.target)]
                 console.log(t)
                 for (let child of scroller.parentElement.lastElementChild.children) {
-                    child.style.setProperty('background-color', null)    
+                    child.style.setProperty('background-color', null)  
                 }
                 t.style.setProperty('background-color', 'aqua')
 
-            } 
+            }
         }
-    }, {root: scroller})
+    }, {root: scroller, threshold: 1})
 
     elems.forEach((elem) => {
         e.push(elem)
+        console.log(elem)
         obs.observe(elem)
     })
 })
