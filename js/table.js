@@ -129,11 +129,15 @@ scrollers.forEach((scroller) => {
 
             }
         }
-    }, {root: scroller, threshold: 1})
+    }, {root: scroller, threshold: [0, 1]})
 
+    let n = 0
     elems.forEach((elem) => {
-        e.push(elem)
-        console.log(elem)
-        obs.observe(elem)
+        if (n > 0) {
+            e.push(elem)
+            console.log(elem)
+            obs.observe(elem)
+        }
+        n += 1
     })
 })

@@ -78,14 +78,14 @@ footer {
     min-width: 450px;
 
     display: grid;
-    grid-template-columns: calc(20% + var(--tb-padding) * .5) repeat(3, calc(20% - var(--tb-padding) * .5)) calc(20% + var(--tb-padding) * .5);
-    grid-template-rows: 1fr auto;
+    grid-template-columns: var(--tb-padding) repeat(5, 1fr) var(--tb-padding);
+    grid-template-rows: 1fr auto var(--tb-padding);
     /* gap: var(--gap-main); */
     resize: both;
 }
 
 .upper-bar {
-    grid-column: 1 / -1;
+    grid-column: 2 / -2;
     grid-row: 1 / span 1;
 
     display: grid;
@@ -180,10 +180,17 @@ footer {
     }
 }
 
+.background {
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+
+    background-color: var(--tb-bg-color);
+    border-radius: var(--border-radius);
+}
 
 .table {
-    grid-column: 1 / -1;
-    grid-row: -2 / -1;
+    grid-column: 2 / -2;
+    grid-row: 2 / span 1;
 
     display: grid;
     grid-template-columns: subgrid;
@@ -191,14 +198,6 @@ footer {
 
     box-sizing: border-box;
     padding-top: var(--gap-main);
-
-    background-color: var(--tb-bg-color);
-    border-left: solid var(--tb-padding) var(--tb-bg-color);
-    border-right: solid var(--tb-padding) var(--tb-bg-color);
-    border-bottom: solid var(--tb-padding) var(--tb-bg-color);
-
-    border-bottom-left-radius: var(--tb-border-radius);
-    border-bottom-right-radius: var(--tb-border-radius);
 }
 
 .entry {
@@ -283,10 +282,6 @@ footer {
 
     & .particle-data-list > * {
         margin-left: .5rem;
-
-        & > * {
-            color: var(--text-color-dark); /*Force light colors*/
-        }
     }
 
 }
@@ -477,17 +472,16 @@ footer {
     padding: calc(var(--pad-small) / 2);
 }
 
-.tag {
-    width: auto;
+.tags > * {
     margin-left: var(--gap-small);
-
-    /* border-radius: var(--border-radius); */
-    /* border: solid 2px light-dark(var(--border-color), var(--border-color-dark)); */
 }
 
 .tag {
-    width: max-content;
-    height: 90%;
+    /* width: max-content;
+    height: 90%; */
+    /* width: 80%;
+    transform: translate(-7.5%, 0); */
+
     padding: var(--pad-small);
 
     border-radius: calc(var(--border-radius) * .5);
@@ -554,6 +548,10 @@ footer {
         border-radius: var(--border-radius);
 
         transition: opacity .3s, background-color .3s;
+
+        & > * {
+            color: var(--text-color-dark); /*Force light colors*/
+        }
     }
 
     .particle:hover > .particle-data-list {

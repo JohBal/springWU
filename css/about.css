@@ -8,7 +8,14 @@
     position: relative;
     z-index: 2;
 
-    background-color: light-dark(var(--bg-main), var(--bg-main-dark));
+    /* background-color: light-dark(var(--bg-main), var(--bg-main-dark)); */
+}
+
+#wrapper {
+    background: conic-gradient(
+        180deg at 100px 500px,
+        black 50%, white 100%
+    )
 }
 
 header {
@@ -37,8 +44,12 @@ footer {
     border-bottom-width: 3px;
 
     /* background-color: rgb(0 0 0 / .2); */
-    background: radial-gradient(circle at 50% 50%, var(--border-color) 50%, hsl(from var(--border-color) h s calc(l * 0.9)));
     backdrop-filter: blur(5px);
+    
+}
+
+#wrapper > section/* :has(:not(img)) */ {
+    background: radial-gradient(circle at 50% 50%, hsl(from var(--border-color) h s calc(l * 1.2) / .5) 50%, hsl(from var(--border-color) h s calc(l * 1) / .5));
 }
 
 #wrapper > section:not(:first-of-type) {
