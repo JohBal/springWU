@@ -110,7 +110,7 @@ h3 {
     text-wrap: balance;
 }
 
-p, h4, h5, h6 {
+*:has(p, h4, h5, h6, option) {
     font-size: 1rem;
     color: light-dark(var(--text-color), var(--text-color-dark));
     font-family: 'Nunito';
@@ -119,6 +119,10 @@ p, h4, h5, h6 {
 label, output {
     color: light-dark(var(--text-color), var(--text-color-dark));
     font-family: 'Rubik';
+}
+
+label {
+    font-weight: 600;
 }
 
 a:hover {
@@ -136,7 +140,7 @@ section a {
 
     padding: var(--pad-small);
 
-    color: rgb(18 26 95);
+    color: rgb(from light-dark(var(--text-color), var(--text-color-dark)) r g calc(b + 50));
     font-family: 'Nunito';
     
     text-wrap: balance;
@@ -200,6 +204,7 @@ abbr {
     font-style: italic;
     font-weight: 400;
 
+    color: light-dark(var(--text-color), var(--text-color-dark));
     text-shadow: 0px 0px 4px white;
 }
 
@@ -345,6 +350,13 @@ li > button {
     align-items: center;
 }
 
+.center-abs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .list-space {
     margin-bottom: var(--gap-small);
 }
@@ -367,6 +379,11 @@ li > button {
     box-shadow: 0px 0px 10px 2px light-dark(var(--border-color), var(--border-color-dark));
 }
 
+@property --radial-start {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
 
 .checkbox {
     appearance: none;
@@ -384,9 +401,11 @@ li > button {
     color: light-dark(var(--border-color), var(--border-color-dark)); /*Used for currentColor*/
     border-radius: 5px;
     border: solid 3px currentColor;
-    background-color: rgb(0 0 0 / 0);
 
-    transition: background-color .1s;
+    --radial-start: 100%;
+    background: radial-gradient(circle at 50% 50%, light-dark(var(--interactable-dark), var(--interactable)) var(--radial-start), rgb(255 255 255 / 0) 100%);
+
+    transition: --radial-start .1s;
 }
 
 .checkbox:hover {
@@ -395,7 +414,8 @@ li > button {
 }
 
 .checkbox:checked {
-    background-color: light-dark(var(--interactable), var(--interactable-dark));
+    --radial-start: 0%;
+    
 }
 
 .radial-ind[solid] > span { /*UNUSED*/
@@ -415,6 +435,35 @@ li > button {
     }
 }
 
+.circle {
+    position: relative;
+
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, var(--ind-color) 50%, rgb(255 255 255 / 0) 100%);
+}
+
+.drop-down {
+    background-image: url('../img/square-caret-down-regular-full-black.svg');
+    background-size: cover;
+
+    transition: transform .2s;
+}
+
+.drop-down:checked {
+    transform: rotate(180deg) /* translate(0, 50%) */;
+}
+
+.quark {
+    --ind-color: rgb(185 119 185);
+}
+
+.fermion {
+    --ind-color: rgb(60 120 80);
+}
+
+.boson {
+    --ind-color: rgb(146, 64, 39);
+}
 
 /*Text features*/
 
@@ -516,11 +565,6 @@ header li:has(a:hover) {
 header a:hover {
     font-weight: 800;
     letter-spacing: calc(-0.4675px);
-}
-
-
-.nav-list > li > * {
-
 }
 
 
@@ -701,15 +745,6 @@ footer > .bottom > * {
         height: 2.5rem;
         width: auto;
         aspect-ratio: 1 / 1;
-
-        background-image: url('../img/square-caret-down-regular-full-black.svg');
-        background-size: cover;
-
-        transition: transform .2s;
-    }
-
-    .mobile-menu-btn:checked {
-        transform: rotate(180deg) /* translate(0, 50%) */;
     }
 
     .header-container:has(.mobile-menu-btn:checked) > nav {
@@ -722,8 +757,8 @@ footer > .bottom > * {
 /*Dark color scheme optimization*/
 
 @media all and (prefers-color-scheme: dark) {
-    .mobile-menu-btn {
-        background-image: url('../img/square-caret-down-regular-full-white.svg');
+    .drop-down {
+        background-image: url('./img/square-caret-down-regular-full-white.svg');
     }
 
     #current-site {

@@ -2,28 +2,28 @@ const tableEntry = document.querySelector('#tableEntry')
 const table = document.querySelector('div.table')
 
 const particles = [
-    {name: 'Up'},
-    {name: 'Charm'},
-    {name: 'Top'},
-    {name: 'Gluon'},
-    {name: 'Higgs'},
+    {name: 'Up', type: 'quark'},
+    {name: 'Charm', type: 'quark'},
+    {name: 'Top', type: 'quark'},
+    {name: 'Gluon', type: 'quark'},
+    {name: 'Higgs', type: 'quark'},
 
-    {name: 'Down'},
-    {name: 'Strange'},
-    {name: 'Bottom'},
-    {name: 'Photon'},
+    {name: 'Down', type: 'quark'},
+    {name: 'Strange', type: 'quark'},
+    {name: 'Bottom', type: 'quark'},
+    {name: 'Photon', type: 'boson'},
     {},
 
-    {name: 'Electron'},
-    {name: 'Muon'},
-    {name: 'Tau'},
-    {name: 'Z boson'},
+    {name: 'Electron', type: 'fermion'},
+    {name: 'Muon', type: 'fermion'},
+    {name: 'Tau', type: 'fermion'},
+    {name: 'Z boson', type: 'boson'},
     {},
 
-    {name: 'Electron neutrino'},
-    {name: 'Muon neutrino'},
-    {name: 'Tau neutrino'},
-    {name: 'W bozon'}
+    {name: 'Electron neutrino', type: 'fermion'},
+    {name: 'Muon neutrino', type: 'fermion'},
+    {name: 'Tau neutrino', type: 'fermion'},
+    {name: 'W bozon', type: 'boson'}
 ]
 
 for (const particle of particles) {
@@ -35,9 +35,13 @@ for (const particle of particles) {
     if (Object.keys(particle).length == 0) {
         entry.style.setProperty('opacity', '0')
     } else {
+        entry.classList.add(particle.type)
         const particleName = entry.querySelector('.particle-name')
         //console.log(tableEnties.length, tableEnties, particleName)
         particleName.innerHTML = particle.name.toUpperCase()
+
+        const particleAddr = entry.querySelector('.particle-addr')
+        particleAddr.innerHTML = particle.name[0].toUpperCase()
     }
 }
 
@@ -76,37 +80,6 @@ window.addEventListener('scroll', (e) => {
     }
 }, {capture: true})
 
-
-
-const statusCont = document.querySelector('#status')
-const statusTitle = statusCont.querySelector('.title')
-const statusDesc = statusCont.querySelector('.desc')
-const statusIcon = statusCont.querySelector('.icon')
-
-statusCont.style.setProperty('--trans-time', '.2s')
-
-let statusQuene = []
-function showStatus(type, title, msg) {
-    if (statusCont.classList.contains('show')) {
-        statusQuene.push([type, title, msg])
-    } else {
-        statusTitle.innerHTML = title
-        statusDesc.innerHTML = msg
-        statusCont.classList.add('show')
-        if (statusQuene.length > 0) { statusQuene.splice(0, 1) }
-        setTimeout(() => {
-            statusCont.classList.remove('show')
-            if (statusQuene.length > 0) {
-                setTimeout(showStatus, 300, statusQuene[0][0], statusQuene[0][1], statusQuene[0][2]) 
-            }
-        }, 200 * msg.length + 5000)
-    }
-}
-
-/* showStatus(1, 'Message', 'A status update')
-showStatus(1, 'Message', 'A status update 1')
-showStatus(1, 'Message', 'A status update 2') */
-
 const scrollers = document.querySelectorAll('.hide-scroll')
 
 scrollers.forEach((scroller) => {
@@ -117,27 +90,23 @@ scrollers.forEach((scroller) => {
     const obs = new IntersectionObserver((entries) => {
         for (let entry of entries) {
             console.log(entry)
-            if (entry.target && !entry.intersection && entry.intersectionRatio == 1) {
-                entry.target.style.setProperty('background-color', 'aqua')
+            if (entry.target && !entry.intersection && entry.isIntersecting && entry.intersectionRatio > .1) {
                 
                 let t = scroller.parentElement.lastElementChild.children[e.indexOf(entry.target)]
-                console.log(t)
+                console.log(e.indexOf(entry.target))
                 for (let child of scroller.parentElement.lastElementChild.children) {
                     child.style.setProperty('background-color', null)  
                 }
-                t.style.setProperty('background-color', 'aqua')
+                t.style.setProperty('background-color', 'rgb(0 0 0 / .8)')
 
             }
         }
-    }, {root: scroller, threshold: [0, 1]})
+    }, {root: scroller, threshold: [0, 1], trackVisibility: true, delay: 500})
 
     let n = 0
     elems.forEach((elem) => {
-        if (n > 0) {
-            e.push(elem)
-            console.log(elem)
-            obs.observe(elem)
-        }
-        n += 1
+        e.push(elem)
+        console.log(elem)
+        obs.observe(elem)
     })
 })

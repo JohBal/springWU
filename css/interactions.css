@@ -1,4 +1,4 @@
-/*STYLE FOR index.html*/
+/*STYLE FOR interactions.html*/
 
 :root {
     
@@ -89,8 +89,6 @@ footer {
     display: grid;
     grid-template-columns: subgrid;
     grid-template-rows: 100%;
-
-    font-weight: 700;
 }
 
 .upper-bar > * {
@@ -149,20 +147,14 @@ footer {
     height: 100%;
 
     & > * {
+        display: block;
         min-width: 100%;
         width: 100%;
         height: 100%;
-
         scroll-snap-align: start;
 
         box-sizing: border-box;
         padding: var(--pad-small);
-
-        justify-content: space-evenly;
-    }
-
-    & > * p {
-        color: var(--ind-color);
     }
 }
 
@@ -179,7 +171,7 @@ footer {
 
     & > * {
         display: block;
-        border-radius: 50%;
+        border-radius: 1000px;
         box-sizing: border-box;
         border: solid 1px black;
         background-color: rgb(0 0 0 / .5);
@@ -267,7 +259,7 @@ footer {
 
     & .particle-data-list {
         width: 100%;
-        height: fit-content;
+        height: 100%;
         font-size: .7rem;
     }
 
@@ -355,141 +347,11 @@ footer {
     width: auto;
 }
 
-/*Category*/
-
-.details-category  {
+.interactions-container {
     width: 100%;
+
+    border: solid var(--border-size) light-dark(var(--border-color), var(--border-color-dark));
 }
-
-/*The header for each category*/
-
-.details-category-header {
-    position: sticky;
-    top: 0;
-
-    height: 20px;
-    margin: var(--gap-main) 0;
-
-    /* color: currentColor;
-    transition: filter var(--trans-time);
-    filter: brightness(1); */
-
-    container-type: scroll-state;
-    container-name: sticky-heading;
-}
-
-/* .details-category-header >  {
-    opacity: 1;
-} */
-
-@container sticky-heading scroll-state(stuck: top) {
-    h4, img {
-        opacity: .5;
-    }
-}
-
-.details-category:has(.details-category-header > .drop-down:checked) > .details-category-list {
-    display: none;
-}
-
-/*The table that containes the data*/
-
-.details-category-list {
-    width: 100%;
-    color: light-dark(var(--fg), var(--fg-dark));
-    background-color: currentColor;
-
-    border: solid 1px rgb(100 100 100);
-    box-sizing: border-box;
-
-    --text-color: #4b4b4b;
-    --text-color-dark: #a5a5a5;
-
-    &>li {
-        min-height: 50px;
-        width: 100%;
-        justify-content: space-between;
-        
-        /* color: light-dark(var(--fg), var(--fg-dark)); */
-        color: inherit;
-        background-color: currentColor;
-        /* background: linear-gradient(90deg, hsl(from var(--fg) h s calc(l * .7)), var(--fg)); */
-    }
-    &>li > label {
-        width: fit-content;
-        justify-self: flex-start;
-        align-self: center;
-        margin-left: var(--pad-main);
-
-        text-wrap: balance;
-    }
-
-    &>li > output {
-        max-width: 50%;
-        margin-right: var(--pad-main);
-        align-self: center;
-        justify-self: self-end;
-
-        z-index: 2; /*Layer over details-category-header*/
-    }
-}
-
-.details-category-list > li:nth-child(2n) {
-    background-color: hsl(from currentColor h s calc(l * 1.2));
-}
-
-.details-category-list > li:first-child {
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-}
-
-.details-category-list > li:last-child {
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-}
-
-
-/*Data types*/
-
-.str-data {
-    height: fit-content;
-    line-break: normal;
-    text-wrap: balance;
-}
-
-.unit-selector {
-    margin-left: var(--gap-small);
-    border-radius: calc(var(--border-radius) / 2);
-}
-
-.tags {
-    scroll-snap-type: x mandatory;
-    scroll-snap-align: center;
-    overscroll-behavior-x: contain;
-    overflow-x: auto;
-
-    padding: calc(var(--pad-small) / 2);
-}
-
-.tags > * {
-    margin-left: var(--gap-small);
-}
-
-.tag {
-    /* width: max-content;
-    height: 90%; */
-    /* width: 80%;
-    transform: translate(-7.5%, 0); */
-
-    padding: var(--pad-small);
-
-    border-radius: calc(var(--border-radius) * .5);
-    background-color: hsl(from currentColor h s calc(l * 3));
-    color: rgb(from var(--text-color-dark) r g calc(b * 1.05));
-}
-
-
-
 
 /*SIDEBAR*/
 
@@ -534,20 +396,23 @@ footer {
 @media all and (width < 1200px) {
     .particle-data-list {
         opacity: 0;
-        width: 100%;
-        min-height: 100%;
-        height: 100%;
+        width: calc(100% + var(--pad-small) / 2);
+        height: calc(100% + var(--pad-small) / 2);
         box-sizing: border-box;
         padding: var(--pad-small);
         
         position: absolute;
-        top: 0;
-        left: 0;
+        right: 0;
+        bottom: 0;
         z-index: 2;
 
         border-radius: var(--border-radius);
 
         transition: opacity .3s, background-color .3s;
+
+        & > * {
+            color: var(--text-color-dark); /*Force light colors*/
+        }
     }
 
     .particle:hover > .particle-data-list {

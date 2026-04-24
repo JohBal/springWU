@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/hardron.css">
+  <link rel="stylesheet" href="./css/interactions.css">
   <link rel="stylesheet" href="./css/shared.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="./css/status.css">
+  <title>Interactions</title>
 </head>
 <body>
   <div id="wrapper">
@@ -28,7 +29,7 @@
     </header>
 
     <div id="current-site">
-      <h2>The table</h2>
+      <h2>The interactions</h2>
     </div>
 
     <aside class="side-panel-container">
@@ -88,8 +89,8 @@
               <div class="particle center round-border" role="cell" tabindex="0">
                 <ul class="particle-data-list ign-point">
                   <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                  <li><label>Spin</label> <output>100</output></li>
-                  <li><label>E</label> <output>100</output></li>
+                  <li><label>Spin</label> <output>1/2</output></li>
+                  <li><label>E</label> <output>100</output> <abbr title="Joule">J</abbr></li>
                 </ul>
 
                 <div class="center">
@@ -109,10 +110,10 @@
     <section class="particle-details-container round-border">
       <div class="details-header flex-row">
         <h2>Details</h2>
-        <div class="options flex-row flex-wrap">
+        <!-- <div class="options flex-row flex-wrap">
           <button>Compare</button>
           <button disabled>Interaction</button>
-        </div>
+        </div> -->
       </div>
 
       <div class="particle-details flex-row flex-stretch gap-small">
@@ -132,68 +133,13 @@
               </div>
             </div>
 
-            <h4 class="list-space">Suggestions</h4>
-            <optgroup class="hardron-suggestions flex-row flex-wrap">
-              <option class="suggestion">Option 1</option>
-              <option class="suggestion">Option 2</option>
-            </optgroup>
-
             <hr class="list-space-2">
-
-            <h4 class="list-space">Variants of particle</h4>
-            <ul class="flex-row gap-small">
-              <li class="pad-small"><button>Up<sup>+</sup></button></li>
-              <li class="pad-small"><button>Up</button></li>
-              <li class="pad-small"><button>Up</button></li>
-              <li class="pad-small"><button>Up</button></li>
-            </ul>
 
           </div>
 
-          <ul class="details-list flex-row flex-wrap">
-            <li class="details-category">
+          <canvas class="interactions-container round-border">
 
-              <div class="details-category-header text-center flex-row flex-center">
-                <img class="aspect-height" src="./img/square-caret-down-regular-full-white.svg">
-                <h4>Category name</h4>
-              </div>
-
-              <ul class="details-category-list round-border flex-col flex-wrap">
-
-                <li class="flex-row">
-                  <label>Data</label>
-                  <output class="str-data">Value<select class="unit-selector"><option>kg</option></select></output>
-                </li>
-
-                <li class="flex-row">
-                  <label>Data</label>
-                  <output class="tags flex-row">
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                  </output>
-                </li>
-
-                <li class="flex-row">
-                  <label>Data</label>
-                  <output>Value</output>
-                </li>
-
-                <li class="flex-row">
-                  <label>Data</label>
-                  <output>Value</output>
-                </li>
-                <li class="flex-row">
-                  <label>Data</label>
-                  <output>Value</output>
-                </li>
-              </ul>
-
-            </li>
-          </ul>
+          </canvas>
 
         </section> 
       </div>

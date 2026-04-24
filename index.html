@@ -9,18 +9,10 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="status">
-    <div class="flex-row gap-small">
-      <img width="20" height="20" class="icon">
-      <h2 class="title">Status</h2>
-    </div>
-    <p class="desc">This is a description</p>
-  </div>
-
   <div id="wrapper">
     <header>
       <div class="header-container flex-row space-between">
-        <input type="checkbox" class="mobile-menu-btn custom">
+        <input type="checkbox" class="mobile-menu-btn custom" title="Menu button">
         <div class="header-left center relative">
           <h1>Standard model of particle physics</h1>
           <!-- <h1 class="text-shadow" aria-hidden="true">Standard model of particle physics</h1> -->
@@ -62,8 +54,10 @@
           </div>
           <div class="legand">
             <ul class="hide-scroll flex-row">
-              <li>
-                <p>Legend</p>
+              <li class="flex-row gap-small">
+                <p class="quark">Quark</p>
+                <p class="fermion">Fermion</p>
+                <p class="boson">Boson</p>
               </li>
 
               <li class="">
@@ -94,21 +88,19 @@
 
           <template id="tableEntry">
             <div class="entry">
-              <div class="particle round-border" role="cell" tabindex="0">
+              <div class="particle center round-border" role="cell" tabindex="0">
                 <ul class="particle-data-list ign-point">
                   <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                  <li><label>Spin</label> <output>100</output></li>
-                  <li><label>E</label> <output>100</output></li>
+                  <li><label>Spin</label> <output>1/2</output></li>
+                  <li><label>E</label> <output>100</output> <abbr title="Joule">J</abbr></li>
                 </ul>
-                <div class="center ign-point">
-                  <div class="center">
-                    <svg class="particle-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="50" cy="50" r="50" />
-                      <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
-                    </svg>
-                    <h3 class="particle-name">UP</h3>
+
+                <div class="center">
+                  <div class="circle aspect-height">
+                    <h3 class="center-abs particle-addr">U</h3>
                   </div>
                 </div>
+                <h3 class="particle-name">UP</h3>
               </div>
             </div>
           </template>
@@ -141,21 +133,13 @@
 
             <hr class="list-space-2">
 
-            <h4 class="list-space">Variants of particle</h4>
-            <ul class="flex-row gap-small">
-              <li class="pad-small"><button>Up<sup>+</sup></button></li>
-              <li class="pad-small"><button>Up</button></li>
-              <li class="pad-small"><button>Up</button></li>
-              <li class="pad-small"><button>Up</button></li>
-            </ul>
-
           </div>
 
           <ul class="details-list flex-row flex-wrap">
             <li class="details-category">
 
               <div class="details-category-header text-center flex-row flex-center">
-                <img class="aspect-height" src="./img/square-caret-down-regular-full-white.svg">
+                <input class="aspect-height custom drop-down" type="checkbox">
                 <h4>Category name</h4>
               </div>
 
@@ -169,12 +153,9 @@
                 <li class="flex-row">
                   <label>Data</label>
                   <output class="tags flex-row">
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
-                    <p class="tag h100">Tag</p>
+                    <p class="tag h100 text-color">Tag</p>
+                    <p class="tag h100 text-color">Tag</p>
+                    <p class="tag h100 text-color">Tag</p>
                   </output>
                 </li>
 
