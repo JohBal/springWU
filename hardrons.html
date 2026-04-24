@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/hardron.css">
   <link rel="stylesheet" href="./css/shared.css">
+  <link rel="stylesheet" href="./css/table.css">
   <title>Document</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
     </header>
 
     <div id="current-site">
-      <h2>The table</h2>
+      <h2>The hardrons</h2>
     </div>
 
     <aside class="side-panel-container">
@@ -53,8 +54,10 @@
           </div>
           <div class="legand">
             <ul class="hide-scroll flex-row">
-              <li>
-                <p>Legend</p>
+              <li class="flex-row gap-small">
+                <p class="quark">Quark</p>
+                <p class="fermion">Fermion</p>
+                <p class="boson">Boson</p>
               </li>
 
               <li class="">
@@ -88,8 +91,8 @@
               <div class="particle center round-border" role="cell" tabindex="0">
                 <ul class="particle-data-list ign-point">
                   <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                  <li><label>Spin</label> <output>100</output></li>
-                  <li><label>E</label> <output>100</output></li>
+                  <li><label>Spin</label> <output>1/2</output></li>
+                  <li><label>E</label> <output>100</output> <abbr title="Joule">J</abbr></li>
                 </ul>
 
                 <div class="center">
@@ -127,7 +130,7 @@
                   <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
               </svg>
 
-              <div class="options center">
+              <div class="options center round-border">
                 <p>Drag here</p>
               </div>
             </div>

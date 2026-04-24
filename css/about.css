@@ -1,14 +1,14 @@
 #wrapper {
     display: grid;
     grid-template-columns: 10% 1fr 10%;
-    grid-template-rows: 100px auto repeat(4, auto) auto;
+    grid-template-rows: 80px auto repeat(4, auto) auto;
 
     gap: var(--gap-large);
 
     position: relative;
     z-index: 2;
 
-    /* background-color: light-dark(var(--bg-main), var(--bg-main-dark)); */
+    background-color: light-dark(var(--bg-main), var(--bg-main-dark));
 }
 
 #wrapper {

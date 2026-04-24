@@ -379,12 +379,6 @@ li > button {
     box-shadow: 0px 0px 10px 2px light-dark(var(--border-color), var(--border-color-dark));
 }
 
-@property --radial-start {
-    syntax: "<percentage>";
-    inherits: false;
-    initial-value: 0%;
-}
-
 .checkbox {
     appearance: none;
 
@@ -402,10 +396,9 @@ li > button {
     border-radius: 5px;
     border: solid 3px currentColor;
 
-    --radial-start: 100%;
-    background: radial-gradient(circle at 50% 50%, light-dark(var(--interactable-dark), var(--interactable)) var(--radial-start), rgb(255 255 255 / 0) 100%);
+    background-color: rgb(255 255 255 / 0);
 
-    transition: --radial-start .1s;
+    transition: background-color .2s;
 }
 
 .checkbox:hover {
@@ -414,8 +407,7 @@ li > button {
 }
 
 .checkbox:checked {
-    --radial-start: 0%;
-    
+    background-color: light-dark(var(--interactable-dark), var(--interactable));
 }
 
 .radial-ind[solid] > span { /*UNUSED*/
@@ -440,6 +432,10 @@ li > button {
 
     border-radius: 50%;
     background: radial-gradient(circle at 50% 50%, var(--ind-color) 50%, rgb(255 255 255 / 0) 100%);
+
+    & h3 {
+        color: light-dark(var(--bg-main), var(--bg-main-dark));
+    }
 }
 
 .drop-down {

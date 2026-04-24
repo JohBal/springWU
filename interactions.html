@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/interactions.css">
   <link rel="stylesheet" href="./css/shared.css">
-  <link rel="stylesheet" href="./css/status.css">
+  <link rel="stylesheet" href="./css/table.css">
   <title>Interactions</title>
 </head>
 <body>
@@ -45,67 +45,69 @@
     </aside>
 
     <section class="particles round-border">
-      <div class="table-container">
-        <div class="upper-bar">
-          <div class="col-hd">
-            <p>Gen 1</p>
-            <p>Gen 2</p>
-            <p>Gen 3</p>
-          </div>
-          <div class="legand">
-            <ul class="hide-scroll flex-row">
-              <li>
-                <p>Legend</p>
-              </li>
-
-              <li class="">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-              </li>
-
-              <li class="">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-              </li>
-            </ul>
-            <span class="scroll-marker flex-row flex-center gap-small">
-              <span class="aspect-height"></span>
-              <span class="aspect-height"></span>
-              <span class="aspect-height"></span>
-            </span>
-          </div>
-        </div>
-
-        <div class="background">
-
-        </div>
-  
-        <div class="table">
-
-          <template id="tableEntry">
-            <div class="entry">
-              <div class="particle center round-border" role="cell" tabindex="0">
-                <ul class="particle-data-list ign-point">
-                  <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                  <li><label>Spin</label> <output>1/2</output></li>
-                  <li><label>E</label> <output>100</output> <abbr title="Joule">J</abbr></li>
-                </ul>
-
-                <div class="center">
-                  <div class="circle aspect-height">
-                    <h3 class="center-abs particle-addr">U</h3>
-                  </div>
-                </div>
-                <h3 class="particle-name">UP</h3>
-              </div>
+        <div class="table-container">
+          <div class="upper-bar">
+            <div class="col-hd">
+              <p>Gen 1</p>
+              <p>Gen 2</p>
+              <p>Gen 3</p>
             </div>
-          </template>
-
+            <div class="legand">
+              <ul class="hide-scroll flex-row">
+                <li class="flex-row gap-small">
+                  <p class="quark">Quark</p>
+                  <p class="fermion">Fermion</p>
+                  <p class="boson">Boson</p>
+                </li>
+  
+                <li class="">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </li>
+  
+                <li class="">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </li>
+              </ul>
+              <span class="scroll-marker flex-row flex-center gap-small">
+                <span class="aspect-height"></span>
+                <span class="aspect-height"></span>
+                <span class="aspect-height"></span>
+              </span>
+            </div>
+          </div>
+  
+          <div class="background">
+  
+          </div>
+    
+          <div class="table">
+  
+            <template id="tableEntry">
+              <div class="entry">
+                <div class="particle center round-border" role="cell" tabindex="0">
+                  <ul class="particle-data-list ign-point">
+                    <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
+                    <li><label>Spin</label> <output>1/2</output></li>
+                    <li><label>E</label> <output>100</output> <abbr title="Joule">J</abbr></li>
+                  </ul>
+  
+                  <div class="center">
+                    <div class="circle aspect-height">
+                      <h3 class="center-abs particle-addr">U</h3>
+                    </div>
+                  </div>
+                  <h3 class="particle-name">UP</h3>
+                </div>
+              </div>
+            </template>
+  
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <section class="particle-details-container round-border">
       <div class="details-header flex-row">
@@ -128,7 +130,7 @@
                   <text x="0" y="0" lengthAdjust="spacing" textLength="100">U</text>
               </svg>
 
-              <div class="options center">
+              <div class="options center round-border">
                 <p>Drag here</p>
               </div>
             </div>
