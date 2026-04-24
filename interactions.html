@@ -6,13 +6,13 @@
   <link rel="stylesheet" href="./css/interactions.css">
   <link rel="stylesheet" href="./css/shared.css">
   <link rel="stylesheet" href="./css/table.css">
-  <title>Interactions</title>
+  <title>Standard model of particle physics - Interactions</title>
 </head>
 <body>
   <div id="wrapper">
     <header>
       <div class="header-container flex-row space-between">
-        <input type="checkbox" class="mobile-menu-btn custom" title="Menu button">
+        <input type="checkbox" class="mobile-menu-btn drop-down custom" title="Menu button">
         <div class="header-left center relative">
           <h1>Standard model of particle physics</h1>
           <!-- <h1 class="text-shadow" aria-hidden="true">Standard model of particle physics</h1> -->
@@ -37,16 +37,16 @@
       <div class="side-panel">
         <h2 class="list-space title">Options</h2>
         <form class="side-panel-form">
-          <label name="anti-pair">Anti-pair</label>
-          <input name="anti-pair" type="checkbox" class="checkbox"></input>
+          <label for="antiPair">Anti-pair</label>
+          <input id="antiPair" type="checkbox" class="checkbox">
         </form>
       </div>
       <hr>
     </aside>
 
-    <section class="particles round-border">
+    <section class="particles round-border" role="table">
         <div class="table-container">
-          <div class="upper-bar">
+          <div id="tableRowHeader" class="upper-bar" role="rowheader">
             <div class="col-hd">
               <p>Gen 1</p>
               <p>Gen 2</p>
@@ -54,19 +54,19 @@
             </div>
             <div class="legand">
               <ul class="hide-scroll flex-row">
-                <li class="flex-row gap-small">
+                <li class="flex-row gap-small" tabindex="0">
                   <p class="quark">Quark</p>
                   <p class="fermion">Fermion</p>
                   <p class="boson">Boson</p>
                 </li>
   
-                <li class="">
+                <li tabindex="0">
                   <input type="checkbox">
                   <input type="checkbox">
                   <input type="checkbox">
                 </li>
   
-                <li class="">
+                <li tabindex="0">
                   <input type="checkbox">
                   <input type="checkbox">
                   <input type="checkbox">
@@ -87,12 +87,12 @@
           <div class="table">
   
             <template id="tableEntry">
-              <div class="entry">
-                <div class="particle center round-border" role="cell" tabindex="0">
+              <div class="entry" role="gridcell" aria-describedby="tableRowHeader">
+                <div class="particle center round-border" tabindex="0" draggable="true">
                   <ul class="particle-data-list ign-point">
-                    <li><label>Mass</label> <output>100</output> <abbr title="Electron volt">ev</abbr></li>
-                    <li><label>Spin</label> <output>1/2</output></li>
-                    <li><label>E</label> <output>100</output> <abbr title="Joule">J</abbr></li>
+                    <li><label for="mass" title="Mass">Mass</label> <output name="mass">100</output> <abbr title="Electron volt">ev</abbr></li>
+                    <li><label for="spin" title="Spin">Spin</label> <output name="spin">1/2</output></li>
+                    <li><label for="energy" title="Energy">E</label> <output name="energy">100</output> <abbr title="Joule">J</abbr></li>
                   </ul>
   
                   <div class="center">
@@ -151,8 +151,9 @@
       <div class="footer-list gap-small">
         <section class="round-border">
           <h2>About</h2>
-          <ul class="list-col">
-            <li></li>
+          <ul class="list-col read-margin">
+            <li>About text</li>
+            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas harum illo animi non facilis autem qui ipsa debitis itaque ratione tempora libero saepe, nulla nostrum ad. Unde nobis dolore consectetur.</li>
           </ul>
         </section>
         <section class="round-border">
@@ -165,7 +166,7 @@
         <section class="round-border">
           <h2>Social & contact</h2>
           <ul class="grid-collage">
-            <li class="social"><a><img width="50" height="50"></a></li>
+            <li class="social"><a><img width="50" height="50" alt="Social media"></a></li>
             <li class="contact"><a>Mail</a></li>
             <li></li>
           </ul>

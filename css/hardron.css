@@ -308,8 +308,8 @@ footer {
     padding: var(--pad-small);
 
     border-radius: calc(var(--border-radius) * .5);
-    background-color: hsl(from currentColor h s calc(l * .3));
-    color: rgb(from var(--text-color-dark) r g calc(b * 1.05));
+    background-color: light-dark(hsl(from currentColor h s calc(l * 3)), hsl(from currentColor h s calc(l * .35)));
+    color: var(--text-color-dark);
 }
 
 
@@ -355,46 +355,6 @@ footer {
 
 /*Mobile optimization*/
 
-@media all and (width < 1200px) {
-    .particle-data-list {
-        opacity: 0;
-        width: calc(100% + var(--pad-small) / 2);
-        height: calc(100% + var(--pad-small) / 2);
-        box-sizing: border-box;
-        padding: var(--pad-small);
-        
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        z-index: 2;
-
-        border-radius: var(--border-radius);
-
-        transition: opacity .3s, background-color .3s;
-
-        & > * {
-            color: var(--text-color-dark); /*Force light colors*/
-        }
-    }
-
-    .particle:hover > .particle-data-list {
-        opacity: .8;
-        background-color: light-dark(var(--ind-color-light), var(--ind-color));
-    }
-
-    .particle > .center {
-        font-size: .8rem;
-    }
-
-    /* .particle > .center > div {
-        width: 80%;
-    } */
-
-    .particles {
-        /* padding: 1em; */
-    }
-}
-
 @media all and (width < 800px) {
     #wrapper {
         grid-template-columns: 10px calc(100% - 20px) 10px;
@@ -430,9 +390,5 @@ footer {
             margin: auto 0;
             margin-right: var(--gap-main);
         }
-    }
-
-    .particle > .center {
-        font-size: .7rem;
     }
 }

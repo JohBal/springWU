@@ -39,7 +39,7 @@
     --interactable-dark: rgb(46, 46, 46);
     --header-color-dark: rgb(218, 218, 218);
     --title-color-dark: rgb(230, 230, 230);
-    --text-color-dark: rgb(210, 210, 210);
+    --text-color-dark: rgb(220, 220, 220);
 
 
     --border-box-shadow: 4px 0 6px -4px light-dark(rgb(100 100 100 / .5), rgb(30 30 30 / .5)),
@@ -754,7 +754,7 @@ footer > .bottom > * {
 
 @media all and (prefers-color-scheme: dark) {
     .drop-down {
-        background-image: url('./img/square-caret-down-regular-full-white.svg');
+        background-image: url('../img/square-caret-down-regular-full-white.svg');
     }
 
     #current-site {

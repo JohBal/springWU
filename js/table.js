@@ -5,8 +5,8 @@ const particles = [
     {name: 'Up', type: 'quark'},
     {name: 'Charm', type: 'quark'},
     {name: 'Top', type: 'quark'},
-    {name: 'Gluon', type: 'quark'},
-    {name: 'Higgs', type: 'quark'},
+    {name: 'Gluon', type: 'boson'},
+    {name: 'Higgs', type: 'boson'},
 
     {name: 'Down', type: 'quark'},
     {name: 'Strange', type: 'quark'},
@@ -97,7 +97,7 @@ scrollers.forEach((scroller) => {
                 for (let child of scroller.parentElement.lastElementChild.children) {
                     child.style.setProperty('background-color', null)  
                 }
-                t.style.setProperty('background-color', 'rgb(0 0 0 / .8)')
+                t.style.setProperty('background-color', 'light-dark(rgb(0 0 0 / .8), rgb(255 255 255 / .8))')
 
             }
         }
@@ -106,7 +106,6 @@ scrollers.forEach((scroller) => {
     let n = 0
     elems.forEach((elem) => {
         e.push(elem)
-        console.log(elem)
         obs.observe(elem)
     })
 })
